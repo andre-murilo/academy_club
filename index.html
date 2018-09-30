@@ -8,54 +8,40 @@
     
     <!-- Links href -->
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" title="" charset="utf-8" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" title="" charset="utf-8" />
     <link rel="stylesheet" href="css/normalize.css" type="text/css" media="screen" title="" charset="utf-8" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
 
 
 </head>
 
 <!-- body -->
 <body>
-    <!-- wrapper -->
-    <div class="wrapper">
+    
+        
 
-        <!-- conteudo geral da pagina -->
-        <div class="container">
-
-            <!-- menu esquerdo -->
-            <div class="left-menu">
-                <div class="logo">
-                    <span>AC</span>
-                </div>
-
-                <ul class="options">
-                    <li><i class="fa fa-home" title="inicio"></i></li>
-                    <li><i class="fa fa-users" title="usuario"></i></li>
-                    <li><i class="fa fa-calendar" title="calendario"></i></li>
-                </ul>
-            </div>
+            
 
 
             <!-- navegacao superior -->
-            <div class="head">
-                <ul class="options">
-                    <li class="left">
+            <header class="head">
+                
+                    <div class="left offset-0" height="30" style="margin-left: 30px;">
                         <div class="expander">
-                            <span><i class="fa fa-bars"></i></span>
+                            <span><a class="fa fa-bars"></a></span>
                         </div>
-                    </li>
-    
-                    <li class="left">
-                        <div class="search">
-                            <span><i class="fa fa-search"></i></span>
-                            <input type="text" name="search" placeholder="Pesquisar">
+                    </div>
+                    
+                    <div class="search input-group col-5 ">
                             
-                        </div>
-                    </li>
-    
+                        <input type="text" class="form-control" placeholder="pesquisar" aria-label="pesquisar" aria-describedby="button-addon1">
+                        <button class="fa fa-search btn btn-dark"></button>
+                        
+                    </div>
 
                     <!-- right side -->
-
+                    <ul class="options">
                     <li class="right">
                         <ul>
                             <!-- expander menu -->
@@ -84,190 +70,206 @@
                     </li>
                 </ul>
     
-            </div>
+            </header>
+            <!-- menu esquerdo -->
+            <aside class="left-menu col-1 offset-0 col-xl-0 col-lg-0 " >
+                <div class="logo">
+                    <span style="font-family: 'Anton', sans-serif;">AC</span>
+                </div>
+
+                <ul class="options">
+                    <li><a class="fa fa-home" title="inicio"></a></li>
+                    <li><a class="fa fa-users" title="usuario"></a></li>
+                    <li><a class="fa fa-calendar" title="calendario"></a></li>
+                </ul>
+            </aside>
 
             <!-- conteudo central -->
-            <div class="main">
+            <main class="main col-9">
 
                 <div class="central">
-                    <center><h2 style="color: dimgrey; padding-top: 25px;">Academy Clube</h2></center>
+                    <center><h2 style="color: dimgrey; padding-top: 25px; font-size: 50px;">Academy Clube</h2></center>
                 </div>
 
                 
-                <!-- menu direito -->
-                <div class="right-menu">
-                    <!-- tab control -->
-                    <div class="tab">
-                        <!-- buttons -->
-                        <ul>
-                            <li class="active"><span>Pessoas</span></li>
-                            <li><span>Grupos</span></li>
-                        </ul>
+                
+            </main>
 
-                        <!-- conteudo - pessoas -->
-                        <div class="tab-content-pessoas">
-                            <table>
-                                <tbody>
+            <!-- menu direito -->
+            <div class="right-menu col-xl-2 col-lg-2 col-2">
+                <!-- tab control -->
+                <div class="tab">
+                    <!-- buttons -->
+                    <div class="btn-group col-2 offset-2" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary">Pessoas</button>
+                        <button type="button" class="btn btn-secondary">Grupo</button>
+                        
+                      </div>
 
-                                    <tr>
-                                        <!-- user image -->
-                                        <th>
-                                            <span class="dot online"></span> <img class="perfil-img" src="img/02.jpg">
-                                        </th>
-                                       
+                    <!-- conteudo - pessoas -->
+                    <div class="tab-content-pessoas">
+                        <table>
+                            <tbody>
+
+                                <tr>
+                                    <!-- user image -->
+                                    <th>
+                                        <span class="dot online"></span> <img class="perfil-img" src="img/02.jpg">
+                                    </th>
+                                   
+                                    
+                                    <!-- name & course -->
+                                    <th>
+                                        <span><a>Sabrina</a></span><br>
+                                        <span><a>Direito</a></span>
                                         
-                                        <!-- name & course -->
-                                        <th>
-                                            <span><a>Sabrina</a></span><br>
-                                            <span><a>Direito</a></span>
-                                            
-                                        </th>
-                                        
-                                    </tr>   
-                               
-                                    <tr>
-                                        <!-- user image -->
-                                        <th>
-                                            <span class="dot online"></span> <img class="perfil-img" src="img/03.jpg">
-                                        </th>
-                                        
-                                        <!-- name & course -->
-                                        <th>
-                                            <span><a>Giulia</a></span><br>
-                                            <span><a>Letras</a></span>
-                                        </th>
-                                    </tr> 
+                                    </th>
+                                    
+                                </tr>   
+                           
+                                <tr>
+                                    <!-- user image -->
+                                    <th>
+                                        <span class="dot online"></span> <img class="perfil-img" src="img/03.jpg">
+                                    </th>
+                                    
+                                    <!-- name & course -->
+                                    <th>
+                                        <span><a>Giulia</a></span><br>
+                                        <span><a>Letras</a></span>
+                                    </th>
+                                </tr> 
 
-                                    <tr>
-                                        <!-- user image -->
-                                        <th>
-                                            <span class="dot offline"></span> <img class="perfil-img" src="img/04.jpg">
-                                        </th>
-                                        
-                                        <!-- name & course -->
-                                        <th>
-                                            <span><a>Paula</a></span><br>
-                                            <span><a>Medicina</a></span>
-                                        </th>
-                                    </tr> 
+                                <tr>
+                                    <!-- user image -->
+                                    <th>
+                                        <span class="dot offline"></span> <img class="perfil-img" src="img/04.jpg">
+                                    </th>
+                                    
+                                    <!-- name & course -->
+                                    <th>
+                                        <span><a>Paula</a></span><br>
+                                        <span><a>Medicina</a></span>
+                                    </th>
+                                </tr> 
 
 
-                                </tbody>
-                            </table>
-
-                        </div>
-
-                        <!-- conteudo - grupos -->
-                        <div class="tab-content-grupos" style="display: none;">
-                            
-                        </div>
-
-
-
-
-
-                        <!-- <ul>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                        </ul>  -->
+                            </tbody>
+                        </table>
 
                     </div>
 
-                    <div class="custom-search">
-                        <input type="text" name="buscar" placeholder="Procurar">
+                    <!-- conteudo - grupos -->
+                    <div class="tab-content-grupos" style="display: none;">
+                        
                     </div>
 
 
 
-                </div> 
-            </div>
+
+
+                    <!-- <ul>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                    </ul>  -->
+
+                </div>
+
+                <div class="custom-search col col-12 align-self-end">
+                     <input type="text" class="form-control" placeholder="Procurar" aria-label="Procurar" aria-describedby="button-addon1">
+                    
+                </div>
+
+
+
+            </div> 
     
           
-        </div>
+        
 
-    </div>
+    
   
 
 </body>

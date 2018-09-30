@@ -1,7 +1,14 @@
 /* todos os elementos */
 * { 
+    
     padding: 0; 
-    margin: 0; 
+    margin: 0 auto; 
+}
+
+
+
+a {
+    text-decoration: none;  
 }
 
 /* html e body com 100% de tamanho e largura */
@@ -9,7 +16,8 @@ html, body {
     min-height: 100% !important;
     height: 100%;
     overflow: hidden;
-    min-width: 680px;
+    
+   
     
 }
 
@@ -19,25 +27,7 @@ body {
 }
 
 /* wrapper */
-.wrapper {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    
-}
 
-/* container */
-.container {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    top: 0;
-    overflow: hidden;
- 
-}
 
 
 
@@ -46,11 +36,12 @@ body {
 .left-menu {
     background-color: #4080FF;
     height: 100%;
-    width: 60px;
-    margin: 0;
+    
+    
     padding: 0;
     border-right: 1px solid rgb(53, 100, 194);
-    z-index: 1;
+    z-index: 0;
+    left: 0;
     /* display: table-cell; */
     float: left;
 
@@ -60,13 +51,13 @@ body {
 .left-menu .logo {
     width: 100%;
     height: 60px;
-    background-color: #2A6AEB;
-    color: white;
+    margin-top: 10px;
+    color: rgb(32, 76, 163);
     text-align: center;
     line-height: 60px;
     font-size: 24px;
     font-family: 'Lucida Sans Unicode';
-    border-right: 1px solid rgb(14, 81, 214);
+    border: 2spx solid rgba(32, 76, 163, 0.315);
 }
 .left-menu .logo:hover {
     cursor: pointer;
@@ -78,7 +69,10 @@ body {
     text-align: center;
     color: rgba(255,255,255, 0.8);
     font-size: 28px;
+    list-style-type: none;
 }
+
+
 
 .left-menu .options li {
     padding: 10px;
@@ -125,7 +119,7 @@ body {
     display: block;
     text-align: center;
     font-size: 28px;
-    padding: 12px 3px;
+    padding: 6px 3px;
     width: 40px;
     color: #5A738E
 }
@@ -135,23 +129,15 @@ body {
 
 
 .head .search {
-    display: table;
+    float: left;
     padding-top: 10px;
+    
     margin-left: 60px;
 }
 
-.head .search span {
-    display: inline-block;
-    position: absolute;
-    margin-left: 274px;
-    background-color: white;
-    color: rgb(131, 131, 131);
-    width: 30px;
-    margin-top: 1px;
-    border: none;
-    height: 32px;
-    line-height: 30px;
-    text-align: center;
+.head .search button {
+    height: 100%;
+    width: 50px;
 }
 
 .head .search span:hover {
@@ -186,19 +172,22 @@ body {
 
 /* main */
 .main {
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
     top: 0;
-    width: 100%;
-    height: calc(100% - 60px);
+    width: 70%;
+    height: 100%;
+    float: left;
     
 }
 
 /* conteudo central */
 .main .central {
     display: inline-block;
-    width: calc(100% - 265px);
+    width: 100%;
     height: 100%;
+    font-family: 'Anton', sans-serif;
+    font-size: 300px;
 
     overflow-y: scroll;
 }
@@ -207,12 +196,13 @@ body {
 
 
 /* menu direito */
-.main .right-menu {
-    display: inline-block;
+.right-menu {
+    display: block;
     background-color: #F3F3F3;
+    position: absolute !important;
     height: 100%;
-    width: 200px;
-  
+    width: 15%;
+    float: left;
     right: 0;
     overflow-y: scroll;
 }
@@ -258,8 +248,9 @@ body {
 .right-menu .custom-search {
     
     height: 30px;
-    position: fixed;
-    bottom: 0;
+    position: relative;
+    top: 450px;
+    
 }
 
 .right-menu .custom-search input {
@@ -344,6 +335,7 @@ body {
 
 .left {
     float: left;
+    padding-left: 20px; 
 }
 
 .right {
@@ -396,19 +388,19 @@ body {
 
 
     /* 2 */
-.main .right-menu::-webkit-scrollbar-track {
+.right-menu::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	background-color: #F5F5F5;
 }
 
 
-.main .right-menu::-webkit-scrollbar
+.right-menu::-webkit-scrollbar
 {
 	width: 10px;
 	background-color: #F5F5F5;
 }
 
-.main .right-menu::-webkit-scrollbar-thumb
+.right-menu::-webkit-scrollbar-thumb
 {
 	background-color: #0ae;
 	
