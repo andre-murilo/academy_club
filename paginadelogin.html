@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Academy Club</title>
+    
+    <!-- Links href -->
+    <link rel="stylesheet" href="css/pagina-login.css" type="text/css" media="screen" title="" charset="utf-8" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" title="" charset="utf-8" />
+    <link rel="stylesheet" href="css/normalize.css" type="text/css" media="screen" title="" charset="utf-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <script src='js/dados.js'></script>
+
+
+</head>
+
+<!-- body -->
+<body>
+    
+      <main> 
+          
+        <div class="formulario col-7 ">
+
+        <form class="offset-3 " action="">
+           <input id="user" class="form-control" type="text" placeholder="Nome de Usuario" aria-label="pesquisar" aria-describedby="button-addon1">
+           <input id="pass" class="form-control" type="password" placeholder="Senha" aria-label="pesquisar" aria-describedby="button-addon1">
+           <button onclick="Usuario()" class="botao btn-outline-dark " type="submit" >logar</button>
+           
+        </form>
+      </div></main>
+          
+        
+
+    <script>
+
+    
+        
+        function Usuario(){
+            var usua,senha;   
+            usua = document.getElementById("user").value;
+            senha = document.getElementById("pass").value;
+             
+            
+            if (usua == "leonina" & senha == "1234"){
+
+                window.location.assign('https://pt.stackoverflow.com/questions/129417/alterar-window-location-href-n%C3%A3o-redireciona-para-a-nova-p%C3%A1gina');
+
+            }
+    
+
+        }
+    
+    </script>
+  
+
+</body>
+
+</html

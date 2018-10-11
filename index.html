@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/normalize.css" type="text/css" media="screen" title="" charset="utf-8" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <script src='js/dados.js'></script>
 
 
 </head>
@@ -19,7 +20,22 @@
 <!-- body -->
 <body>
     
+      <script>
+
+          console.log(db.dados[0].nome);
+          console.log(db.dados[0].idade);
+          console.log(db.dados[0].curso);
+          console.log(db.dados[0].cidade);
+
+          console.log(db.dados[1].nome);
+          console.log(db.dados[1].idade);
+          console.log(db.dados[1].curso);
+          console.log(db.dados[1].cidade);
+
+
+
         
+      </script>  
 
             
 
@@ -27,7 +43,7 @@
             <!-- navegacao superior -->
             <header class="head">
                 
-                    <div class="left offset-0" height="30" style="margin-left: 30px;">
+                    <div onclick="fechar()"  class="left offset-0" height="30" style="margin-left: 30px;">
                         <div class="expander">
                             <span><a class="fa fa-bars"></a></span>
                         </div>
@@ -88,7 +104,13 @@
             <main class="main col-9">
 
                 <div class="central">
-                    <center><h2 style="color: dimgrey; padding-top: 25px; font-size: 50px;">Academy Clube</h2></center>
+                    <div class="feed col-12 ">
+
+                        <div class="grupos-destaque"></div>
+                        <div class="grupos-destaque"></div>
+                        <div class="grupos-destaque"></div>
+                        <div class="grupos-destaque"></div>
+                    </div>
                 </div>
 
                 
@@ -100,7 +122,7 @@
                 <!-- tab control -->
                 <div class="tab">
                     <!-- buttons -->
-                    <div class="btn-group col-2 offset-2" role="group" aria-label="Basic example">
+                    <div class="btn-group col-12 offset-2" role="group" aria-label="Basic example">
                         <button type="button" class="btn btn-secondary">Pessoas</button>
                         <button type="button" class="btn btn-secondary">Grupo</button>
                         
@@ -267,7 +289,14 @@
             </div> 
     
           
-        
+        <script>
+
+           // document.getElementsByClassName('expander')[0].onclick = fechar();
+        function fechado(){
+
+            document.getElementsByClassName('left-menu')[0].style.width = '30%';
+        }
+        </script>
 
     
   

@@ -39,7 +39,7 @@ body {
     
     
     padding: 0;
-    border-right: 1px solid rgb(53, 100, 194);
+    box-shadow: 2px 0px 20px black;
     z-index: 0;
     left: 0;
     /* display: table-cell; */
@@ -52,7 +52,7 @@ body {
     width: 100%;
     height: 60px;
     margin-top: 10px;
-    color: rgb(32, 76, 163);
+    color: rgba(0, 0, 0, 0.863);
     text-align: center;
     line-height: 60px;
     font-size: 24px;
@@ -87,7 +87,7 @@ body {
 
 /* cabecalho */
 .head {
-    background-color: #3BB9E3;
+    background-color: #000;
     width: 100%;
     height: 60px;
     margin: 0;
@@ -407,4 +407,23 @@ body {
 	background-image: -webkit-gradient(linear, 0 0, 0 100%,
 	                   color-stop(.5, rgba(255, 255, 255, .2)),
 					   color-stop(.5, transparent), to(transparent));
+}
+
+.grupos-destaque {
+
+    width: 400px;
+    height: 400px;
+    background-color: #F3F3F3;
+    
+    float: left;
+    
+    
+    margin: 20px;
+    box-shadow: 0px 20px 30px #000;
+}
+
+.feed{
+
+    width: 100% !important;
+    padding-left: 200px;
 }
