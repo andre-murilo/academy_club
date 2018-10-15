@@ -8,54 +8,58 @@
     
     <!-- Links href -->
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" title="" charset="utf-8" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" title="" charset="utf-8" />
     <link rel="stylesheet" href="css/normalize.css" type="text/css" media="screen" title="" charset="utf-8" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <script src='js/dados.js'></script>
 
 
 </head>
 
 <!-- body -->
 <body>
-    <!-- wrapper -->
-    <div class="wrapper">
+    
+      <script>
 
-        <!-- conteudo geral da pagina -->
-        <div class="container">
+          console.log(db.dados[0].nome);
+          console.log(db.dados[0].idade);
+          console.log(db.dados[0].curso);
+          console.log(db.dados[0].cidade);
 
-            <!-- menu esquerdo -->
-            <div class="left-menu">
-                <div class="logo">
-                    <span>AC</span>
-                </div>
+          console.log(db.dados[1].nome);
+          console.log(db.dados[1].idade);
+          console.log(db.dados[1].curso);
+          console.log(db.dados[1].cidade);
 
-                <ul class="options">
-                    <li><i class="fa fa-home" title="inicio"></i></li>
-                    <li><i class="fa fa-users" title="usuario"></i></li>
-                    <li><i class="fa fa-calendar" title="calendario"></i></li>
-                </ul>
-            </div>
+
+
+        
+      </script>  
+
+            
 
 
             <!-- navegacao superior -->
-            <div class="head">
-                <ul class="options">
-                    <li class="left">
+            <header class="head">
+                
+                    <div onclick="fechar()"  class="left offset-0" height="30" style="margin-left: 30px;">
                         <div class="expander">
-                            <span><i class="fa fa-bars"></i></span>
+                            <span><a class="fa fa-bars"></a></span>
                         </div>
-                    </li>
-    
-                    <li class="left">
-                        <div class="search">
-                            <span><i class="fa fa-search"></i></span>
-                            <input type="text" name="search" placeholder="Pesquisar">
+                    </div>
+                    
+                    <div class="search input-group col-5 ">
                             
-                        </div>
-                    </li>
-    
+                        <input type="text" id="pesquisar" class="form-control" placeholder="pesquisar" aria-label="pesquisar" aria-describedby="button-addon1">
+                        <button class="fa fa-search btn btn-dark"></button>
+                        <div id="results" ></div>
+                        
+                    </div>
 
                     <!-- right side -->
-
+                    <ul class="options">
                     <li class="right">
                         <ul>
                             <!-- expander menu -->
@@ -84,190 +88,267 @@
                     </li>
                 </ul>
     
+            </header>
+
+
+            <!-- menu esquerdo -->
+
+
+            <aside class="left-menu col col-1 offset-0 col-xl-0 col-lg-0 " >
+                <div class="menu col-8">
+                <div class="logo">
+                    <span style="font-family: 'Anton', sans-serif;">AC</span>
+                </div>
+
+                <ul class="options">
+                    <li><a class="fa fa-home" title="inicio"></a></li>
+                    <li><a class="fa fa-users" title="usuario"></a></li>
+                    <li><a class="fa fa-calendar" title="calendario"></a></li>
+                </ul>
             </div>
+            </aside>
 
             <!-- conteudo central -->
-            <div class="main">
+            <main class="main col-9">
 
-                <div class="central">
-                    <center><h2 style="color: dimgrey; padding-top: 25px;">Academy Clube</h2></center>
+                <div class="bread-crambs col-12">
+
+                    
+                        
+                              
+                              <nav class="right" aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                  <li class="breadcrumb-item"><a href="#">perfil</a></li>
+                                  <li class="breadcrumb-item active" aria-current="page">@marcofil</li>
+                                </ol>
+                              </nav>
+
+                </div>
+
+                <div class="campo-perfil shadow left col-3">
+                        <div class="user-photo text-center">
+                        <li class="right">
+                               
+                                    <img  src="img/01.jpg">
+                                
+                            </li>
+
+                            <h3>marcos filipe</h3>
+                            <p>estudante de engenharia - PucMG</p>
+                        </div>
+                        <div class="info-perfil"> 
+                            
+                            <i class="fas fa-map-marker-alt"></i>
+
+                        
+                        </div>
+                           
                 </div>
 
                 
-                <!-- menu direito -->
-                <div class="right-menu">
-                    <!-- tab control -->
-                    <div class="tab">
-                        <!-- buttons -->
+
+                <div class="space-user col-9  shadow">
+
+                    <nav class="sub-menu ">
+
                         <ul>
-                            <li class="active"><span>Pessoas</span></li>
-                            <li><span>Grupos</span></li>
+                            <li class="item-menu">Timeline</li>
+                            <li class="item-menu">Galeria</li>
+                            <li class="item-menu">Interesse</li>
+                            <li class="item-menu">Amigos</li>                           
                         </ul>
+                    </nav>
 
-                        <!-- conteudo - pessoas -->
-                        <div class="tab-content-pessoas">
-                            <table>
-                                <tbody>
+                </div>
 
-                                    <tr>
-                                        <!-- user image -->
-                                        <th>
-                                            <span class="dot online"></span> <img class="perfil-img" src="img/02.jpg">
-                                        </th>
-                                       
+                
+                
+            </main>
+
+            <!-- menu direito -->
+            <div class="right-menu col-xl-2 col-lg-2 col-2">
+                <!-- tab control -->
+                <div class="tab">
+                    <!-- buttons -->
+                    <div class="btn-group col-12 offset-0" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary">Pessoas</button>
+                        <button type="button" class="btn btn-secondary">Grupo</button>
+                        
+                      </div>
+
+                    <!-- conteudo - pessoas -->
+                    <div class="tab-content-pessoas">
+                        <table>
+                            <tbody>
+
+                                <tr>
+                                    <!-- user image -->
+                                    <th>
+                                        <span class="dot online"></span> <img class="perfil-img" src="img/02.jpg">
+                                    </th>
+                                   
+                                    
+                                    <!-- name & course -->
+                                    <th>
+                                        <span><a>Sabrina</a></span><br>
+                                        <span><a>Direito</a></span>
                                         
-                                        <!-- name & course -->
-                                        <th>
-                                            <span><a>Sabrina</a></span><br>
-                                            <span><a>Direito</a></span>
-                                            
-                                        </th>
-                                        
-                                    </tr>   
-                               
-                                    <tr>
-                                        <!-- user image -->
-                                        <th>
-                                            <span class="dot online"></span> <img class="perfil-img" src="img/03.jpg">
-                                        </th>
-                                        
-                                        <!-- name & course -->
-                                        <th>
-                                            <span><a>Giulia</a></span><br>
-                                            <span><a>Letras</a></span>
-                                        </th>
-                                    </tr> 
+                                    </th>
+                                    
+                                </tr>   
+                           
+                                <tr>
+                                    <!-- user image -->
+                                    <th>
+                                        <span class="dot online"></span> <img class="perfil-img" src="img/03.jpg">
+                                    </th>
+                                    
+                                    <!-- name & course -->
+                                    <th>
+                                        <span><a>Giulia</a></span><br>
+                                        <span><a>Letras</a></span>
+                                    </th>
+                                </tr> 
 
-                                    <tr>
-                                        <!-- user image -->
-                                        <th>
-                                            <span class="dot offline"></span> <img class="perfil-img" src="img/04.jpg">
-                                        </th>
-                                        
-                                        <!-- name & course -->
-                                        <th>
-                                            <span><a>Paula</a></span><br>
-                                            <span><a>Medicina</a></span>
-                                        </th>
-                                    </tr> 
+                                <tr>
+                                    <!-- user image -->
+                                    <th>
+                                        <span class="dot offline"></span> <img class="perfil-img" src="img/04.jpg">
+                                    </th>
+                                    
+                                    <!-- name & course -->
+                                    <th>
+                                        <span><a>Paula</a></span><br>
+                                        <span><a>Medicina</a></span>
+                                    </th>
+                                </tr> 
 
 
-                                </tbody>
-                            </table>
-
-                        </div>
-
-                        <!-- conteudo - grupos -->
-                        <div class="tab-content-grupos" style="display: none;">
-                            
-                        </div>
-
-
-
-
-
-                        <!-- <ul>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                            <li>asdasd</li>
-                        </ul>  -->
+                            </tbody>
+                        </table>
 
                     </div>
 
-                    <div class="custom-search">
-                        <input type="text" name="buscar" placeholder="Procurar">
+                    <!-- conteudo - grupos -->
+                    <div class="tab-content-grupos" style="display: none;">
+                        
                     </div>
 
 
 
-                </div> 
-            </div>
+
+
+                    <!-- <ul>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                        <li>asdasd</li>
+                    </ul>  -->
+
+                </div>
+
+                <div class="custom-search col col-12 align-self-end">
+                     <input type="text" class="form-control" placeholder="Procurar" aria-label="Procurar" aria-describedby="button-addon1">
+                    
+                </div>
+
+
+
+            </div> 
     
           
-        </div>
+            <script src="js/pesquisa.js"></script>
+        <script>       
 
-    </div>
+           // document.getElementsByClassName('expander')[0].onclick = fechar();
+        function fechado(){
+
+            document.getElementsByClassName('left-menu')[0].style.width = '30%';
+        }
+        </script>
+
+    
   
 
 </body>
