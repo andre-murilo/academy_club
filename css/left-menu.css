@@ -1,0 +1,56 @@
+@charset "UTF-8";
+/* menu esquerdo */
+.left-menu {
+   
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100%;
+    
+    z-index: 0;
+    left: 0;
+    /* display: table-cell; */
+    float: left;
+
+}
+
+.menu {
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #4080FF;
+    height: 100%;
+    box-shadow: 2px 0px 20px black;
+}
+
+/* menu esquerdo - logo */
+.left-menu .logo {
+    width: 100%;
+    height: 60px;
+    color: rgba(236, 236, 236, 0.863);
+    text-align: center;
+    line-height: 60px;
+    font-size: 24px;
+    font-family: 'Lucida Sans Unicode';
+    border: 2spx solid rgba(32, 76, 163, 0.315);
+}
+.left-menu .logo:hover {
+    cursor: pointer;
+}
+
+/* menu esquerdo - menu */
+.left-menu .options {
+    margin-top: 12px;
+    text-align: center;
+    color: rgba(255,255,255, 0.8);
+    font-size: 28px;
+    list-style-type: none;
+}
+
+
+
+.left-menu .options li {
+    padding: 10px;
+}
+.left-menu .options li:hover {
+    cursor: pointer;
+    color: rgba(212,212,212, 0.9);;
+}

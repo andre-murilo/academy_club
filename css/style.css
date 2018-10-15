@@ -1,8 +1,15 @@
+@charset "UTF-8";
+@import url("right-menu.css");
+@import url("left-menu.css");
+@import url("cabeçalho.css");
+@import url("main.css");
+
 /* todos os elementos */
 * { 
     
     padding: 0; 
     margin: 0 auto; 
+    font-size: 15px;
 }
 
 
@@ -25,314 +32,6 @@ html, body {
 body {
     background-color: #FFFFFF;
 }
-
-/* wrapper */
-
-
-
-
-
-/* menu esquerdo */
-.left-menu {
-    background-color: #4080FF;
-    height: 100%;
-    
-    
-    padding: 0;
-    box-shadow: 2px 0px 20px black;
-    z-index: 0;
-    left: 0;
-    /* display: table-cell; */
-    float: left;
-
-}
-
-/* menu esquerdo - logo */
-.left-menu .logo {
-    width: 100%;
-    height: 60px;
-    margin-top: 10px;
-    color: rgba(0, 0, 0, 0.863);
-    text-align: center;
-    line-height: 60px;
-    font-size: 24px;
-    font-family: 'Lucida Sans Unicode';
-    border: 2spx solid rgba(32, 76, 163, 0.315);
-}
-.left-menu .logo:hover {
-    cursor: pointer;
-}
-
-/* menu esquerdo - menu */
-.left-menu .options {
-    margin-top: 12px;
-    text-align: center;
-    color: rgba(255,255,255, 0.8);
-    font-size: 28px;
-    list-style-type: none;
-}
-
-
-
-.left-menu .options li {
-    padding: 10px;
-}
-.left-menu .options li:hover {
-    cursor: pointer;
-    color: rgba(212,212,212, 0.9);;
-}
-
-
-
-
-/* cabecalho */
-.head {
-    background-color: #000;
-    width: 100%;
-    height: 60px;
-    margin: 0;
-    padding: 0;
-
-
-}
-.head a {
-    color: rgba(255,255,255, 0.8);
-  
-}
-
-
-.head .options {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    display: inline;
-}
-
-.head .options li {
-    display: inline-block;
-}
-
-
-
-
-.head .expander {
-    display: block;
-    text-align: center;
-    font-size: 28px;
-    padding: 6px 3px;
-    width: 40px;
-    color: #5A738E
-}
-.head .expander i:hover {
-    cursor: pointer;
-}
-
-
-.head .search {
-    float: left;
-    padding-top: 10px;
-    
-    margin-left: 60px;
-}
-
-.head .search button {
-    height: 100%;
-    width: 50px;
-}
-
-.head .search span:hover {
-    cursor: pointer;
-    color: gray;
-    background-color: rgba(210,210,210, 0.8);
-    
-}
-
-.head .search input {
-    width: 300px;
-    height: 30px;
-    font-size: 18px;
-    font-family: 'Verdana';
-   
-}
-
-
-.head .user-photo {
-    display: block;
-    padding: 5px 3px;
-    float: right;
-}
-
-.head .user-photo img {
-    display: block;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-
-}
-
-/* main */
-.main {
-    margin: 0 !important;
-    padding: 0 !important;
-    top: 0;
-    width: 70%;
-    height: 100%;
-    float: left;
-    
-}
-
-/* conteudo central */
-.main .central {
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    font-family: 'Anton', sans-serif;
-    font-size: 300px;
-
-    overflow-y: scroll;
-}
-
-
-
-
-/* menu direito */
-.right-menu {
-    display: block;
-    background-color: #F3F3F3;
-    position: absolute !important;
-    height: 100%;
-    width: 15%;
-    float: left;
-    right: 0;
-    overflow-y: scroll;
-}
-
-/* tab control */
-
-.right-menu .tab {
-    margin: 0;
-    padding: 0;
-    margin-top: 8px;
-
-}
-
-.right-menu .tab > ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    display: inline-block;
-}
-
-.right-menu .tab > ul li {
-
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    background-color: rgb(91, 183, 245);
-    padding: 10px 22px;
-    box-sizing: border-box;
-    border-top: 3px solid transparent;
-}
-
-.right-menu .tab > ul li:hover {
-    cursor: pointer;
-}
-
-.right-menu .tab > ul .active {
-    background-color:  rgb(15, 136, 216);
-    border-top: 3px solid  rgb(5, 99, 251);
-    
-}
-
-/* busca */
-.right-menu .custom-search {
-    
-    height: 30px;
-    position: relative;
-    top: 450px;
-    
-}
-
-.right-menu .custom-search input {
-    width: calc(100% - 15px);
-}
-
-
-
-/* pessoas */
-
-.perfil-img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}
-
-.dot {
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background-color: gray;
-    border-radius: 40%;
-    margin-left: 30px;
-}
-
-.online {
-    background-color: rgb(92, 221, 17);
-}
-
-.offline {
-    background-color: rgb(221, 18, 28);
-}
-
-
-.tab-content-pessoas table {
-    border-collapse: collapse; 
-    margin-top: 4px;
-    width: 100%;
-    max-width: 100%;
-    line-height: 24px;
-    font-size: auto;
-}
-
-.tab-content-pessoas table th {
-    padding-top: 10px;
-}
-
-.tab-content-pessoas table tr {
-    border-bottom: 1px solid green;
-    
-
-
-}
-
-.tab-content-pessoas table tr:last-child {
-    border-bottom: none;
-}
-
-
-
-.tab-content-pessoas table tr th:nth-child(1) {
-    width: 60px;
-    min-width: 60px;
-    text-align: left;
-
-}
-
-.tab-content-pessoas table tr th:nth-child(2) {
-    width: 100%;
-    font-size: 14px;
-    text-align: left;
-
-}
-
-
-
-
-
-
-
-
-
 .left {
     float: left;
     padding-left: 20px; 
@@ -345,7 +44,7 @@ body {
 .icon {
     color: white !important;
     font-size: 26px;
-    padding-top: 14px;
+    padding-top: 5px;
     padding-right: 15px;
   
 }
@@ -366,64 +65,15 @@ body {
 /* scroll bars*/
 
     /* 1 */
-.main .central::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: #F5F5F5;
-}
-
-.main .central::-webkit-scrollbar
-{
-	width: 10px;
-	background-color: #F5F5F5;
-}
-
-.main .central::-webkit-scrollbar-thumb
-{
-	background-color: #0ae;
-	
-	background-image: -webkit-gradient(linear, 0 0, 0 100%,
-	                   color-stop(.5, rgba(255, 255, 255, .2)),
-					   color-stop(.5, transparent), to(transparent));
-}
 
 
     /* 2 */
-.right-menu::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: #F5F5F5;
-}
 
 
-.right-menu::-webkit-scrollbar
-{
-	width: 10px;
-	background-color: #F5F5F5;
-}
-
-.right-menu::-webkit-scrollbar-thumb
-{
-	background-color: #0ae;
-	
-	background-image: -webkit-gradient(linear, 0 0, 0 100%,
-	                   color-stop(.5, rgba(255, 255, 255, .2)),
-					   color-stop(.5, transparent), to(transparent));
-}
-
-.grupos-destaque {
-
-    width: 400px;
-    height: 400px;
-    background-color: #F3F3F3;
-    
-    float: left;
-    
-    
-    margin: 20px;
-    box-shadow: 0px 20px 30px #000;
-}
 
 .feed{
 
-    width: 100% !important;
+    height: 100% !important;
     padding-left: 200px;
 }
+
