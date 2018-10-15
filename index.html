@@ -54,7 +54,7 @@
                             
                         <input type="text" id="pesquisar" class="form-control" placeholder="pesquisar" aria-label="pesquisar" aria-describedby="button-addon1">
                         <button class="fa fa-search btn btn-dark"></button>
-                        <div id="results" ></div>
+                        <div id="results" style=""></div>
                         
                     </div>
 
@@ -338,8 +338,33 @@
             </div> 
     
           
-            <script src="js/pesquisa.js"></script>
-        <script>       
+        <script>
+
+            $("#pesquisar").click(function (){
+              $("#results").css("display", "block" );
+            });
+
+            
+
+            $("#pesquisar").keyup(function(e) {
+                var q = $("#pesquisar").val();
+                        $("#results").empty();
+                $.getJSON("../js/dados.json", function(db){
+                      
+                    $.each(db, function(i, item) {
+                    aux = item.Tag.trim().toLowerCase().split(",")
+                    console.log($("#pesquisar").val().trim().toLowerCase(),aux,aux.indexOf($("#pesquisar").val().trim().toLowerCase()))
+                    if( aux.indexOf($("#pesquisar").val().trim().toLowerCase()) >= 0 )
+                    {
+                        console.log("Encontrou")
+                        $("#results").append("<div>" + item.dados.nome + "<br><br></div>");
+                    }
+                        
+                });
+             });
+
+     });
+            
 
            // document.getElementsByClassName('expander')[0].onclick = fechar();
         function fechado(){
