@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" title="" charset="utf-8" />
     <link rel="stylesheet" href="css/normalize.css" type="text/css" media="screen" title="" charset="utf-8" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
     <script src='js/dados.js'></script>
 
@@ -51,8 +52,9 @@
                     
                     <div class="search input-group col-5 ">
                             
-                        <input type="text" class="form-control" placeholder="pesquisar" aria-label="pesquisar" aria-describedby="button-addon1">
+                        <input type="text" id="pesquisar" class="form-control" placeholder="pesquisar" aria-label="pesquisar" aria-describedby="button-addon1">
                         <button class="fa fa-search btn btn-dark"></button>
+                        <div id="results" ></div>
                         
                     </div>
 
@@ -336,7 +338,8 @@
             </div> 
     
           
-        <script>
+            <script src="js/pesquisa.js"></script>
+        <script>       
 
            // document.getElementsByClassName('expander')[0].onclick = fechar();
         function fechado(){
