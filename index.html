@@ -14,13 +14,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
     <script src='js/dados.js'></script>
-
-
+    <script src='js/urlparams.js'></script>
 </head>
 
 <!-- body -->
 <body>
-    
+
+        <script>
+            VerifyQuery();
+        </script>
+
       <script>
 
           console.log(db.dados[0].nome);
@@ -32,15 +35,9 @@
           console.log(db.dados[1].idade);
           console.log(db.dados[1].curso);
           console.log(db.dados[1].cidade);
-
-
-
-        
       </script>  
 
             
-
-
             <!-- navegacao superior -->
             <header class="head">
                 
@@ -239,93 +236,7 @@
 
 
 
-                    <!-- <ul>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                    </ul>  -->
-
+                
                 </div>
 
                 <div class="custom-search col col-12 align-self-end">
@@ -337,44 +248,7 @@
 
             </div> 
     
-          
-        <script>
 
-            $("#pesquisar").click(function (){
-              $("#results").css("display", "block" );
-            });
-
-            
-
-            $("#pesquisar").keyup(function(e) {
-                var q = $("#pesquisar").val();
-                        $("#results").empty();
-                $.getJSON("../js/dados.json", function(db){
-                      
-                    $.each(db, function(i, item) {
-                    aux = item.Tag.trim().toLowerCase().split(",")
-                    console.log($("#pesquisar").val().trim().toLowerCase(),aux,aux.indexOf($("#pesquisar").val().trim().toLowerCase()))
-                    if( aux.indexOf($("#pesquisar").val().trim().toLowerCase()) >= 0 )
-                    {
-                        console.log("Encontrou")
-                        $("#results").append("<div>" + item.dados.nome + "<br><br></div>");
-                    }
-                        
-                });
-             });
-
-     });
-            
-
-           // document.getElementsByClassName('expander')[0].onclick = fechar();
-        function fechado(){
-
-            document.getElementsByClassName('left-menu')[0].style.width = '30%';
-        }
-        </script>
-
-    
-  
-
+        <script src="js/pesquisa.js"></script>
 </body>
 </html

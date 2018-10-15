@@ -51,10 +51,10 @@ var db = {
 
     ],
 
-    "grupos": [{
-
-        'taboleiro': ['xadrez', 'dama', 'war' ],
-    
-    }]
+    "grupos": [
+        {
+          "tipos": ['xadrez', 'dama', 'war' ]
+        }
+    ]
     
 }
