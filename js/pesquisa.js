@@ -54,7 +54,7 @@ $("#pesquisar").keyup(function(e){
 
 
      // interesses
-     var interesses = `<div><center><h3>INTERESSES</h3></center><hr></div>`;
+     var interesses = `<div class="sub-menuPesquisa"><center><h3>INTERESSES</h3></center></div>`;
      $("#results").append(interesses);
 
     for(var i = 0; i < len; i++)
@@ -62,7 +62,7 @@ $("#pesquisar").keyup(function(e){
         if(db.dados[i].nome.search(tValue) >= 0)
         {
             var nome = db.dados[i].nome;
-            var div = `<div> <a href="?profile=${nome}">${nome}</a><br><br></div>` ;
+            var div = `<div class="op-menu"> <a href="?profile=${nome}">${nome}</a><br><br></div>` ;
             $("#results").append(div);
         }
     }
@@ -70,7 +70,7 @@ $("#pesquisar").keyup(function(e){
     // grupos
     var gruposLen = db.grupos[0].tipos.length;
 
-    var grupos = `<div><center><h3>GRUPOS</h3></center><hr></div>`;
+    var grupos = `<div class="sub-menuPesquisa"><center><h3>GRUPOS</h3></center></div>`;
     $("#results").append(grupos);
 
 
@@ -79,7 +79,7 @@ $("#pesquisar").keyup(function(e){
         if(db.grupos[0].tipos[j].search(tValue) >= 0)
         {
             var nome = db.grupos[0].tipos[j];
-            var div = `<div> <a href="?group=${nome}">${nome}</a><br><br></div>` ;
+            var div = `<div class="op-menu"> <a  href="?group=${nome}">${nome}</a><br><br></div>` ;
             $("#results").append(div);
         }
     }

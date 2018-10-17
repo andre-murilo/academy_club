@@ -48,7 +48,7 @@ main .bread-crambs span {
 .campo-perfil {
 
     height: 100%;
-    margin-left: -20px !important;
+    margin-left: -10px !important;
     /* background-color: #f3f3f3; */
     /* background-color: #000000ce; */
     background-color: #4080FF;
@@ -83,7 +83,7 @@ main .user-photo img {
 
     height: 100%;
     background-color: #f3f3f3;
-    margin-left: 245px !important;
+    margin-left: 27% !important;
     padding: 0 !important;
 }
 
