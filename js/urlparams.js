@@ -17,7 +17,7 @@ var params = ["profile", "group", "account"];
     return url;
 }
 
-if (VerifyQuery() == "Leonina") {
+if (VerifyQuery() == "xadrez/Sabrina") {
 $(document).ready(function(){
 
     $("img.im-p").attr("src", "img/02.jpg");
@@ -27,7 +27,7 @@ $(document).ready(function(){
 
 } else {
 
-    if (VerifyQuery() == "Marcos") {
+    if (VerifyQuery() == "war/Marcos") {
 
         $(document).ready(function(){
 
@@ -38,7 +38,7 @@ $(document).ready(function(){
         
     } else {
 
-        if (VerifyQuery() == "Giulia"){
+        if (VerifyQuery() == "xadrez/Giulia"){
             
             $(document).ready(function(){
 

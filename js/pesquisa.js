@@ -54,7 +54,7 @@ $("#pesquisar").keyup(function(e){
 
 
      // interesses
-     var interesses = `<div class="sub-menuPesquisa"><center><h3>INTERESSES</h3></center></div>`;
+     var interesses = `<div class="sub-menuPesquisa"><center><h3>Interesses/Pessoas</h3></center></div>`;
      $("#results").append(interesses);
 
     for(var i = 0; i < len; i++)
@@ -70,7 +70,7 @@ $("#pesquisar").keyup(function(e){
     // grupos
     var gruposLen = db.grupos[0].tipos.length;
 
-    var grupos = `<div class="sub-menuPesquisa"><center><h3>GRUPOS</h3></center></div>`;
+    var grupos = `<div class="sub-menuPesquisa"><center><h3>Grupos</h3></center></div>`;
     $("#results").append(grupos);
 
 

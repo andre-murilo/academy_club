@@ -3,6 +3,7 @@
 @import url("left-menu.css");
 @import url("cabeçalho.css");
 @import url("main.css");
+@import url("grupo.css");
 
 /* todos os elementos */
 * { 
@@ -61,6 +62,9 @@ body {
     cursor: pointer;
 }
 
+.spacer {
+    height: 80px;
+}
 
 /* scroll bars*/
 
