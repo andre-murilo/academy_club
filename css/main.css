@@ -7,7 +7,6 @@
     width: 70%;
     height: 100%;
     float: left;
-    overflow-y: scroll;
     
 }
 
@@ -15,7 +14,7 @@
 
 main .bread-crambs {
 
-    height: 30px;
+    height: 37px;
     
 }
 
@@ -29,10 +28,8 @@ main .bread-crambs span {
 .breadcrumb {
     
     background-color: white  !important;
-     float: right;
+    float: right;
     padding: 5px !important;
-    
-
    
 }
 
@@ -49,7 +46,7 @@ main .bread-crambs span {
 .campo-perfil {
 
     height: 100%;
-    margin-left: -10px !important;
+    margin-left: -20px !important;
     /* background-color: #f3f3f3; */
     /* background-color: #000000ce; */
     background-color: #4080FF;
@@ -73,10 +70,7 @@ main .user-photo {
 main .user-photo img {
     display: block;
     border-radius: 50%;
-    width: 100%;
-    
-    
-
+    width: 100%; 
 }
 
 
@@ -84,7 +78,7 @@ main .user-photo img {
 
     height: 100%;
     background-color: #f3f3f3;
-    margin-left: 27% !important;
+    margin-left: 245px !important;
     padding: 0 !important;
 }
 
@@ -93,24 +87,63 @@ main .user-photo img {
     height: 40px;
     width: 100%;
     padding: 0;
-    margin: 0;
+    margin: 0px auto;
     padding-top: 10px;
     background-color: #4080FF;
+    position: relative;
+
+}
+.sub-menu ul{
+    list-style: none;
+}
+.sub-menu ul li{
+    height: 75px;
+    text-transform: uppercase;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    float: left;
+    cursor: pointer;
+    position: relative;
+}
+.sub-menu label{
+    width: 150px;
+    padding: 0px;
+    background-color: #4080FF;
+    display: block;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+}
+.item-menu:checked ~ label{
+    background-color: #e54e43;
+    height: 40px;
+    padding-top: 10px;
+
 }
 
 .item-menu {
-
     margin-left: 30px;
     color: #ffffff;
     height: 40px !important;
     width: 100px !important;
-    padding: 5px 15px;
-    display: inline;
-}
-
-.item-menu:hover {
-
-    background-color: coral;
-    cursor: pointer;
+    display: none;
     
 }
+.item-menu:hover {
+
+    background-color: #e54e43;
+    
+}
+
+.content{
+    border-top: 5px solid #e54e43;
+    background-color: #fff;
+    display: none;
+    position: absolute;
+    height: 320 px;
+    width: 600px;
+    left: 0;
+}
+
+
