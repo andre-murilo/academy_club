@@ -15,28 +15,38 @@ function InitializeDB()
     defaultDatabase = defaultApp.database();
 
 
+    firebase.auth().signInAnonymously().catch(function(error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+      });
+
+
+
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+            var isAnonymous = user.isAnonymous;
+            var uid = user.uid;
+            console.log("Logado com sucesso: " + uid);
+        } else {
+
+        }
+      });
+
+
+      defaultDatabase.ref("usuarios").on("value", function(snap) {
+        var usuarios = snap.val();
+
+        for(var i = 0; i < usuarios.length; i++)
+        {
+            console.log(usuarios[i].nome);
+        }
+
+      });
+
+
+
     console.log(defaultApp.name); 
 
 
 }
-
-function login()
-{
-    var provider = new firebase.auth.GoogleAuthProvider();
-    provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-    firebase.auth().languageCode = 'pt';
-
-    firebase.auth().signInWithPopup(provider).then(function(result) {
-        var token = result.credential.accessToken;
-        var user = result.user;
-
-        console.log("token: " + token + " | user: " + user);
-    });
-}
-
-function loadUsers() {
-    firebase.auth().signInWithEmailAndPassword("academy_teste@gmail.com", "123456").catch(function(error) {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-      });
-  }
