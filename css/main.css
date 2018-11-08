@@ -14,7 +14,7 @@
 
 main .bread-crambs {
 
-    height: 30px;
+    height: 25px;
     
 }
 
@@ -22,33 +22,34 @@ main .bread-crambs span {
 
     height: 30px;
     margin-top: 5px;
-    font-size: 15px !important;
+    
 }
 
 .breadcrumb {
     
     background-color: white  !important;
-     float: right;
-    padding: 5px !important;
-    
-
+    float: right;
+    padding: 2px !important;
+    font-size: 13px !important;
    
 }
 
 .breadcrumb-item{
     margin: 0;
-    font-size: 15px !important;
+    
+    font-size: 13px !important;
 }
 
 .breadcrumb-item a{
     margin: 0;
-    font-size: 15px !important;
+    font-size: 13px !important;
 }
 
 .campo-perfil {
 
     height: 100%;
-    margin-left: -20px !important;
+    margin-left: 0px !important;
+    padding: 0px 20% 0px 20%;
     /* background-color: #f3f3f3; */
     /* background-color: #000000ce; */
     background-color: #4080FF;
@@ -72,10 +73,7 @@ main .user-photo {
 main .user-photo img {
     display: block;
     border-radius: 50%;
-    width: 100%;
-    
-    
-
+    width: 100%; 
 }
 
 
@@ -83,8 +81,9 @@ main .user-photo img {
 
     height: 100%;
     background-color: #f3f3f3;
-    margin-left: 245px !important;
+    margin-left: 245px ;
     padding: 0 !important;
+    margin-right: -50px !important;
 }
 
 .sub-menu {
@@ -92,24 +91,63 @@ main .user-photo img {
     height: 40px;
     width: 100%;
     padding: 0;
-    margin: 0;
+    margin: 0px auto;
     padding-top: 10px;
     background-color: #4080FF;
+    position: relative;
+
+}
+.sub-menu ul{
+    list-style: none;
+}
+.sub-menu ul li{
+    height: 75px;
+    text-transform: uppercase;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    float: left;
+    cursor: pointer;
+    position: relative;
+}
+.sub-menu label{
+    width: 150px;
+    padding: 0px;
+    background-color: #4080FF;
+    display: block;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+}
+.item-menu:checked ~ label{
+    background-color: #e54e43;
+    height: 40px;
+    padding-top: 10px;
 
 }
 
 .item-menu {
-
     margin-left: 30px;
     color: #ffffff;
     height: 40px !important;
     width: 100px !important;
-    display: inline;
+    display: none;
     
 }
-
 .item-menu:hover {
 
-    background-color: coral;
+    background-color: #e54e43;
     
 }
+
+.content{
+    border-top: 5px solid #e54e43;
+    background-color: #fff;
+    display: none;
+    position: absolute;
+    height: 320 px;
+    width: 600px;
+    left: 0;
+}
+
+

@@ -2,8 +2,7 @@
 /* menu direito */
 .right-menu {
     display: block;
-    /* background-color: #F3F3F3; */
-    background-color: #000000ce;
+    /* background-color: #000000ce; */
     position: absolute !important;
     height: 100%;
     width: 15%;
@@ -11,6 +10,20 @@
     float: left;
     right: 0;
     overflow-y: scroll;
+}
+
+.elements-menu {
+    
+ 
+    background-color: #000000ce;
+    position: absolute !important;
+    right: 0;
+    align-items: center;
+    height: 100%;
+    width: 15%;
+    padding: 0px 10% 0px 10% !important;
+   
+    
 }
 
 /* tab control */
@@ -40,6 +53,11 @@
     border-top: 3px solid transparent;
 }
 
+.btn-grupo {
+
+    margin: 0 auto !important;
+    padding: 0 !important;
+}
 
 
 .right-menu .tab > ul li:hover {

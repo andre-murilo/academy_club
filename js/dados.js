@@ -4,7 +4,7 @@ var db = {
         {
 
          "img": "https://orofacial.com.br/files/2014/08/Slide6_Web.jpg",
-         "nome": "leonina",
+         "nome": "xadrez/Sabrina",
          "idade": "26",
          "faculdade": "puc",
          "curso": "direito",
@@ -16,7 +16,7 @@ var db = {
         {
 
             "img": "https://orofacial.com.br/files/2014/08/Slide6_Web.jpg",
-            "nome": "marcos",
+            "nome": "war/Marcos",
             "idade": "19",
             "faculdade": "una",
             "curso": "enfermagem",
@@ -28,7 +28,7 @@ var db = {
            {
 
             "img": "https://orofacial.com.br/files/2014/08/Slide6_Web.jpg",
-            "nome": "marcilene",
+            "nome": "xadrez/Giulia",
             "idade": "22",
             "faculdade": "pitagoras",
             "curso": "engenharia civil",
@@ -51,10 +51,10 @@ var db = {
 
     ],
 
-    "grupos": [{
-
-        'taboleiro': ['xadrez', 'dama', 'war' ],
-    
-    }]
+    "grupos": [
+        {
+          "tipos": ['xadrez', 'dama', 'war' ]
+        }
+    ]
     
 }

@@ -2,59 +2,67 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Academy Club</title>
     
     <!-- Links href -->
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" title="" charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" title="" charset="utf-8" />   
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" title="" charset="utf-8" />
     <link rel="stylesheet" href="css/normalize.css" type="text/css" media="screen" title="" charset="utf-8" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-functions.js"></script>
+
+
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+
+    <script src="js/database.js"></script>
     <script src='js/dados.js'></script>
-
-
+    <script src='js/urlparams.js'></script>
+    <script src="js/AcademyClub.js" ></script>
+    
+    
 </head>
 
 <!-- body -->
 <body>
-    
-      <script>
 
-          console.log(db.dados[0].nome);
-          console.log(db.dados[0].idade);
-          console.log(db.dados[0].curso);
-          console.log(db.dados[0].cidade);
+        <script>
+            // InitializeDB();
+            // login();
+            
+        </script>
 
-          console.log(db.dados[1].nome);
-          console.log(db.dados[1].idade);
-          console.log(db.dados[1].curso);
-          console.log(db.dados[1].cidade);
-
-
-
-        
-      </script>  
+      
 
             
-
-
             <!-- navegacao superior -->
             <header class="head">
                 
-                    <div onclick="fechar()"  class="left offset-0" height="30" style="margin-left: 30px;">
+                    <div onclick="fechar()"  class="left offset-0" height="30" style="margin-left: 0px;">
                         <div class="expander">
                             <span><a class="fa fa-bars"></a></span>
                         </div>
                     </div>
                     
-                    <div class="search input-group col-5 ">
+                    <div class="search input-group col-5 col-md-6 ">
                             
                         <input type="text" id="pesquisar" class="form-control" placeholder="pesquisar" aria-label="pesquisar" aria-describedby="button-addon1">
                         <button class="fa fa-search btn btn-dark"></button>
-                        <div id="results" ></div>
+                        <div id="results" style=""></div>
                         
                     </div>
 
@@ -70,7 +78,7 @@
                             <!-- avatar -->
                             <li class="right">
                                 <div class="user-photo">
-                                    <img src="img/01.jpg">
+                                    <a href="?profile=Marcos"><img src="img/01.jpg"></a>
                                 </div>
                             </li>
 
@@ -108,6 +116,8 @@
             </div>
             </aside>
 
+            
+
             <!-- conteudo central -->
             <main class="main col-9">
 
@@ -126,11 +136,11 @@
 
                 </div>
 
-                <div class="campo-perfil shadow left col-3">
+                <div class="campo-perfil shadow left col-3  col-md-2 col-lg-2 col-xl-2">
                         <div class="user-photo text-center">
                         <li class="right">
                                
-                                    <img  src="img/01.jpg">
+                                    <img class="im-p"  src="img/01.jpg">
                                 
                             </li>
 
@@ -148,15 +158,31 @@
 
                 
 
-                <div class="space-user col-9  shadow">
+                <div class="space-user col-9 offset-xl-2 offset-lg-2 offset-md-2 col-md-10 col-lg-10 col-xl-10 shadow">
 
-                    <nav class="sub-menu ">
+                    <nav class="sub-menu">
 
                         <ul>
-                            <li class="item-menu">Timeline</li>
-                            <li class="item-menu">Galeria</li>
-                            <li class="item-menu">Interesse</li>
-                            <li class="item-menu">Amigos</li>                           
+                            <li>
+                                <input type="radio" name="menu" class="item-menu" id="Timeline">
+                                <label for="Timeline">Timeline</label>
+                                <div class="content"></div>
+                            </li>
+                            <li>
+                                <input type="radio" name="menu" class="item-menu" id="Galeria">
+                                <label for="Galeria">Galeria</label>
+                                <div class="content"></div>
+                            </li>
+                            <li>
+                                <input type="radio" name="menu" class="item-menu" id="Interesse">
+                                <label for="Interesse">Interesse</label>
+                                <div class="content"></div>
+                            </li>
+                             <li>
+                                <input type="radio" name="menu" class="item-menu" id="Amigos">
+                                <label for="Amigos">Amigos</label>
+                                <div class="content"></div>
+                            </li>                           
                         </ul>
                     </nav>
 
@@ -168,10 +194,12 @@
 
             <!-- menu direito -->
             <div class="right-menu col-xl-2 col-lg-2 col-2">
+
+                <div class="elements-menu col-11">
                 <!-- tab control -->
                 <div class="tab">
                     <!-- buttons -->
-                    <div class="btn-group col-12 offset-0" role="group" aria-label="Basic example">
+                    <div class="btn-grupo btn-group col-12 offset-0" role="group" aria-label="Basic example">
                         <button type="button" class="btn btn-secondary">Pessoas</button>
                         <button type="button" class="btn btn-secondary">Grupo</button>
                         
@@ -227,7 +255,7 @@
 
                             </tbody>
                         </table>
-
+                    </div>
                     </div>
 
                     <!-- conteudo - grupos -->
@@ -239,93 +267,7 @@
 
 
 
-                    <!-- <ul>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                        <li>asdasd</li>
-                    </ul>  -->
-
+                
                 </div>
 
                 <div class="custom-search col col-12 align-self-end">
@@ -337,19 +279,7 @@
 
             </div> 
     
-          
-            <script src="js/pesquisa.js"></script>
-        <script>       
 
-           // document.getElementsByClassName('expander')[0].onclick = fechar();
-        function fechado(){
-
-            document.getElementsByClassName('left-menu')[0].style.width = '30%';
-        }
-        </script>
-
-    
-  
-
+        <script src="js/pesquisa.js"></script>
 </body>
 </html

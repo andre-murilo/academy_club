@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="refresh" content="0.8">
+    <meta http-equiv="Pragma" content="no-cache">
     <title>Academy Club</title>
     
     <!-- Links href -->
-    <link rel="stylesheet" href="css/pagina-login.css" type="text/css" media="screen" title="" charset="utf-8" />
+    <link rel="stylesheet" href="css/cadastro.css" type="text/css" media="screen" title="" charset="utf-8" />
+    <!-- <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" title="" charset="utf-8" /> -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" title="" charset="utf-8" />
     <link rel="stylesheet" href="css/normalize.css" type="text/css" media="screen" title="" charset="utf-8" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -30,24 +33,43 @@
     <script src="js/database.js"></script>
     <script src='js/dados.js'></script>
     <script src='js/urlparams.js'></script>
-    <script src="js/AcademyClub.js" ></script>
 
 
 </head>
 
+
+
 <!-- body -->
 <body>
+
+        <header class="head">
+                
+                <div onclick="fechar()"  class="menu-expander " height="30" style="margin-left: 0px;">
+                    <div class="expander">
+                        <span><a class="fa fa-bars"></a></span>
+                    </div>
+                </div>
+                
+                <nav class="menu-head"><ul>
+                    <li class="item-menu nav-item"><a class="nav-link" href="?paginadelogin.html">Login</a> </li>
+                    <li class="item-menu nav-item"><a class="nav-link" href="?cadastro.html">Cadastro</a></li>
+                    <li class="item-menu nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    
+                </ul></nav></header>
     
       <main> 
           
-        <div class="formulario col-7 ">
+        <div class="formulario  col-xl-6 ">
 
-        <form class="form offset-3 " action="">
-           <input id="user" class="form-control" type="text" placeholder="Nome de Usuario" aria-label="pesquisar" aria-describedby="button-addon1">
-           <input id="pass" class="form-control" type="password" placeholder="Senha" aria-label="pesquisar" aria-describedby="button-addon1">
-           <button onclick="Usuario()" class="botao btn-outline-dark " type="submit" >Criar</button>
+            <h1>Preencha as informaçoes*</h1>
+           <input class="col-8" id="user" class="form-control" type="text" placeholder="Nome Completo" aria-label="pesquisar" aria-describedby="button-addon1">
+           <input class="col-6" id="user" class="form-control" type="text" placeholder="Email" aria-label="pesquisar" aria-describedby="button-addon1">
            
-        </form>
+
+           <input id="user" class="password col-4" type="password" placeholder="Senha" aria-label="pesquisar" aria-describedby="button-addon1">
+           <button onclick="Usuario()" class="botao btn-outline-dark " type="submit" >cadastrar</button>
+           
+        
       </div></main>
           
         

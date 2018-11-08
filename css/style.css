@@ -3,13 +3,15 @@
 @import url("left-menu.css");
 @import url("cabeçalho.css");
 @import url("main.css");
+@import url("grupo.css");
+
 
 /* todos os elementos */
 * { 
     
     padding: 0; 
     margin: 0 auto; 
-    font-size: 15px;
+    font-size: 12px;
 }
 
 
@@ -61,6 +63,9 @@ body {
     cursor: pointer;
 }
 
+.spacer {
+    height: 80px;
+}
 
 /* scroll bars*/
 
