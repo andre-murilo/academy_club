@@ -73,7 +73,7 @@ main .user-photo img {
     width: 100%; 
 }
 
-
+/* Formatacao do submenu */
 .space-user {
 
     height: 100%;
@@ -83,67 +83,52 @@ main .user-photo img {
 }
 
 .sub-menu {
-
-    height: 40px;
+    display: block: ;
+    height: 42px;
     width: 100%;
     padding: 0;
     margin: 0px auto;
     padding-top: 10px;
     background-color: #4080FF;
     position: relative;
-
 }
+
 .sub-menu ul{
     list-style: none;
+    text-transform: uppercase;
+    position: absolute;
+    top: -10px;
+    left: 100px;
 }
 .sub-menu ul li{
-    height: 75px;
-    text-transform: uppercase;
-    padding-left: 10px;
-    padding-right: 10px;
-    box-sizing: border-box;
-    float: left;
-    cursor: pointer;
-    position: relative;
-}
-.sub-menu label{
-    width: 150px;
-    padding: 0px;
+    display: inline-block;
     background-color: #4080FF;
+    padding: 10px;
+    margin: 10px;
+    -webkit-transition: background-color 1s;
+    -moz-transition: background-color 1s;
+    -o-transition: background-color 1s;
+    -ms-transition: background-color 1s;
+    transition: background-color 1s;
+    
+}
+.sub-menu ul li:hover{
+    background-color: #e54e43;
+    height: 100%;
+}
+
+.sub-menu a {
+    color: #ffff;
+    width: 100px;
+    padding: 0px;
     display: block;
-    color: #fff;
     cursor: pointer;
     text-align: center;
-}
-.item-menu:checked ~ label{
-    background-color: #e54e43;
-    height: 40px;
-    padding-top: 10px;
-
+    text-decoration: none;
 }
 
-.item-menu {
-    margin-left: 30px;
-    color: #ffffff;
-    height: 40px !important;
-    width: 100px !important;
-    display: none;
-    
-}
-.item-menu:hover {
-
-    background-color: #e54e43;
-    
-}
-
-.content{
-    border-top: 5px solid #e54e43;
-    background-color: #fff;
-    display: none;
-    position: absolute;
-    height: 320 px;
-    width: 600px;
-    left: 0;
+.sub-menu a:hover{
+    text-decoration: none;
 }
 
 
