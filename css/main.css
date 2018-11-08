@@ -113,7 +113,7 @@ main .user-photo img {
     
 }
 .sub-menu ul li:hover{
-    background-color: #e54e43;
+    background-color: rgba(0, 0, 0, 0.3);
     height: 100%;
 }
 
@@ -129,6 +129,7 @@ main .user-photo img {
 
 .sub-menu a:hover{
     text-decoration: none;
+    color: #ffff;
 }
 
 
