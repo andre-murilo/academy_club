@@ -40,12 +40,12 @@
     margin-top: 100px;
 }
 
-.group-content {
+#group-content {
     height: 800px;
     background-color: rgb(228, 225, 225);
 }
 
-.entrar-grupo {
+#entrar-grupo {
     
     float: right;
     margin-top: 45px;

@@ -1,269 +1,171 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Academy Club</title>
-    
-    <!-- Links href -->
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" title="" charset="utf-8" />
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" title="" charset="utf-8" />
-    <link rel="stylesheet" href="css/normalize.css" type="text/css" media="screen" title="" charset="utf-8" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <!-- firebase -->
-    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
-
-    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-messaging.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-functions.js"></script>
-
-
-    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
-
-    <script src="js/database.js"></script>
-    <script src='js/dados.js'></script>
-    <script src='js/urlparams.js'></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <title>Document</title>
 </head>
+<style>
 
-<!-- body -->
-<body>
+    aside {
+        float: left;
+    }
 
-        <script>
-            InitializeDB();
-        </script>
+    div.card {
+        float: left;
+        margin: 10px;
+    }
 
-        <script language="jacascript" src="_js/sub-menu.js"></script>
-            
-            <!-- navegacao superior -->
-            <header class="head">
-                
-                    <div onclick="fechar()"  class="left offset-0" height="30" style="margin-left: 30px;">
-                        <div class="expander">
-                            <span><a class="fa fa-bars"></a></span>
-                        </div>
-                    </div>
-                    
-                    <div class="search input-group col-5 ">
-                            
-                        <input type="text" id="pesquisar" class="form-control" placeholder="pesquisar" aria-label="pesquisar" aria-describedby="button-addon1">
-                        <button class="fa fa-search btn btn-dark"></button>
-                        <div id="results" style=""></div>
-                        
-                    </div>
+    div.card:hover {
+        background-color: gray;
+    }
+</style>
 
-                    <!-- right side -->
-                    <ul class="options">
-                    <li class="right">
-                        <ul>
-                            <!-- expander menu -->
-                            <li class="right expand">
-                                <span><i class="fa fa-angle-double-up"></i></span>
-                            </li>
+<body class="container-fluid">
 
-                            <!-- avatar -->
-                            <li class="right">
-                                <div class="user-photo">
-                                    <a href="?profile=Marcos"><img src="img/01.jpg"></a>
-                                </div>
-                            </li>
-
-                            <!-- messages -->
-                            <li class="right icon" >
-                                <a href="#"><i class="fa fa-comment-o"></i></a>
-                            </li>
-
-                            <!-- notifications -->
-                            <li class="right icon">
-                                <a href="#"><i class="fa fa-bell"></i></a>
-                            </li>
-
-                        </ul> 
-                    </li>
-                </ul>
-    
-            </header>
-
-
-            <!-- menu esquerdo -->
-
-
-            <aside class="left-menu col col-1 offset-0 col-xl-0 col-lg-0 " >
-                <div class="menu col-8">
-                <div class="logo">
-                    <span style="font-family: 'Anton', sans-serif;">AC</span>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">LOGO</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                    <a class="nav-item nav-link" href="#">Amigos</a>
+                    <a class="nav-item nav-link" href="#">Grupos</a>
                 </div>
-
-                <ul class="options">
-                    <li><a href="index.html" class="fa fa-home" title="inicio"></a></li>
-                    <li><a href="index.html" class="fa fa-users" title="usuario"></a></li>
-                    <li><a href="index.html" class="fa fa-calendar" title="calendario"></a></li>                          
-                </ul>
-                
             </div>
-            </aside>
-    
-            <!-- conteudo central -->
-            <main class="main col-9">
+        </nav>
+    </header>
 
-                <div class="bread-crambs col-12">
+    <div class="row">
+        <aside class="col-md-4">
+            <nav class="menu-contexto">
+                <ul>
+                    <li>Perfil</li>
+                    <li>Hobby</li>
+                    <li>Grupos</li>
+                </ul>
+            </nav>
+        </aside>
 
-                    
-                        
-                              
-                              <nav class="right" aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                  <li class="breadcrumb-item"><a href="#">perfil</a></li>
-                                  <li class="breadcrumb-item active" aria-current="page">@marcofil</li>
-                                </ol>
-                              </nav>
-
+        <main class="col-md-8">
+            <div class="card" style="width: 12rem;">
+                <img class="rounded-circle" src="https://loremflickr.com/320/240?random=1" alt="">
+                <div class="card-body">
+                    <p>Nome Pessoa
+                        <br>Cidade/Estado</p>
                 </div>
-
-                <div class="campo-perfil shadow left col-3">
-                        <div class="user-photo text-center">
-                        <li class="right">
-                               
-                                    <img class="im-p"  src="img/01.jpg">
-                                
-                            </li>
-
-                            <h3>marcos filipe</h3>
-                            <p>estudante de engenharia - PucMG</p>
-                        </div>
-                        <div class="info-perfil"> 
-                            
-                            <i class="fas fa-map-marker-alt"></i>
-
-                        
-                        </div>
-                           
-                </div> 
-
-               <div class="space-user col-9  shadow">
-
-                    <nav class="sub-menu">
-                        <ul>
-                            <li onclick="mudatimeline()"><a href="index.html">Timeline</a></li>
-                            <li onclick="mudagaleria()"><a href="Galeria.html">Galeria</a></li>
-                            <li onclick="mudainteresse()"><a href="Interesse.html">Interesse</a></li>
-                            <li onclick="mudaamigos()"><a href="Amigos.html">Amigos</a></li>                           
-                        </ul>
-                    </nav>
-                    <div class="timeline">
-                    <div class="container left">
-                        <div class="content">
-                            <h2>2017</h2>
-                            <p>Lorem ipsum..</p>
-                        </div>
-                    </div>
-                    <div class="container right">
-                        <div class="content">
-                            <h2>2016</h2>
-                            <p>Lorem ipsum..</p>
-                        </div>
-                        </div>
-                    </div>
+            </div>
+            <div class="card" style="width: 12rem;">
+                <img class="rounded-circle" src="https://loremflickr.com/320/240?random=2" alt="">
+                <div class="card-body">
+                    <p>Nome Pessoa
+                        <br>Cidade/Estado</p>
                 </div>
-
-                
-            </main>
-
-            <!-- menu direito -->
-            <div class="right-menu col-xl-2 col-lg-2 col-2">
-                <!-- tab control -->
-                <div class="tab">
-                    <!-- buttons -->
-                    <div class="btn-group col-12 offset-0" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-secondary">Pessoas</button>
-                        <button type="button" class="btn btn-secondary">Grupo</button>
-                        
-                      </div>
-
-                    <!-- conteudo - pessoas -->
-                    <div class="tab-content-pessoas">
-                        <table>
-                            <tbody>
-
-                                <tr>
-                                    <!-- user image -->
-                                    <th>
-                                        <span class="dot online"></span> <img class="perfil-img" src="img/02.jpg">
-                                    </th>
-                                   
-                                    
-                                    <!-- name & course -->
-                                    <th>
-                                        <span><a>Sabrina</a></span><br>
-                                        <span><a>Direito</a></span>
-                                        
-                                    </th>
-                                    
-                                </tr>   
-                           
-                                <tr>
-                                    <!-- user image -->
-                                    <th>
-                                        <span class="dot online"></span> <img class="perfil-img" src="img/03.jpg">
-                                    </th>
-                                    
-                                    <!-- name & course -->
-                                    <th>
-                                        <span><a>Giulia</a></span><br>
-                                        <span><a>Letras</a></span>
-                                    </th>
-                                </tr> 
-
-                                <tr>
-                                    <!-- user image -->
-                                    <th>
-                                        <span class="dot offline"></span> <img class="perfil-img" src="img/04.jpg">
-                                    </th>
-                                    
-                                    <!-- name & course -->
-                                    <th>
-                                        <span><a>Paula</a></span><br>
-                                        <span><a>Medicina</a></span>
-                                    </th>
-                                </tr> 
-
-
-                            </tbody>
-                        </table>
-
-                    </div>
-
-                    <!-- conteudo - grupos -->
-                    <div class="tab-content-grupos" style="display: none;">
-                        
-                    </div>
-
-
-
-
-
-                
+            </div>
+            <div class="card" style="width: 12rem;">
+                <img class="rounded-circle" src="https://loremflickr.com/320/240?random=3" alt="">
+                <div class="card-body">
+                    <p>Nome Pessoa
+                        <br>Cidade/Estado</p>
                 </div>
-
-                <div class="custom-search col col-12 align-self-end">
-                     <input type="text" class="form-control" placeholder="Procurar" aria-label="Procurar" aria-describedby="button-addon1">
-                    
+            </div>
+            <div class="card" style="width: 12rem;">
+                <img class="rounded-circle" src="https://loremflickr.com/320/240?random=4" alt="">
+                <div class="card-body">
+                    <p>Nome Pessoa
+                        <br>Cidade/Estado</p>
                 </div>
-
-
-
-            </div> 
-    
-
-        <script src="js/pesquisa.js"></script>
+            </div>
+            <div class="card" style="width: 12rem;">
+                <img class="rounded-circle" src="https://loremflickr.com/320/240?random=5" alt="">
+                <div class="card-body">
+                    <p>Nome Pessoa
+                        <br>Cidade/Estado</p>
+                </div>
+            </div>
+            <div class="card" style="width: 12rem;">
+                <img class="rounded-circle" src="https://loremflickr.com/320/240?random=6" alt="">
+                <div class="card-body">
+                    <p>Nome Pessoa
+                        <br>Cidade/Estado</p>
+                </div>
+            </div>
+            <div class="card" style="width: 12rem;">
+                <img class="rounded-circle" src="https://loremflickr.com/320/240?random=7" alt="">
+                <div class="card-body">
+                    <p>Nome Pessoa
+                        <br>Cidade/Estado</p>
+                </div>
+            </div>
+            <div class="card" style="width: 12rem;">
+                <img class="rounded-circle" src="https://loremflickr.com/320/240?random=8" alt="">
+                <div class="card-body">
+                    <p>Nome Pessoa
+                        <br>Cidade/Estado</p>
+                </div>
+            </div>
+            <div class="card" style="width: 12rem;">
+                <img class="rounded-circle" src="https://loremflickr.com/320/240?random=9" alt="">
+                <div class="card-body">
+                    <p>Nome Pessoa
+                        <br>Cidade/Estado</p>
+                </div>
+            </div>
+            <div class="card" style="width: 12rem;">
+                <img class="rounded-circle" src="https://loremflickr.com/320/240?random=10" alt="">
+                <div class="card-body">
+                    <p>Nome Pessoa
+                        <br>Cidade/Estado</p>
+                </div>
+            </div>
+            <div class="card" style="width: 12rem;">
+                <img class="rounded-circle" src="https://loremflickr.com/320/240?random=11" alt="">
+                <div class="card-body">
+                    <p>Nome Pessoa
+                        <br>Cidade/Estado</p>
+                </div>
+            </div>
+            <div class="card" style="width: 12rem;">
+                <img class="rounded-circle" src="https://loremflickr.com/320/240?random=12" alt="">
+                <div class="card-body">
+                    <p>Nome Pessoa
+                        <br>Cidade/Estado</p>
+                </div>
+            </div>
+            <div class="card" style="width: 12rem;">
+                <img class="rounded-circle" src="https://loremflickr.com/320/240?random=13" alt="">
+                <div class="card-body">
+                    <p>Nome Pessoa
+                        <br>Cidade/Estado</p>
+                </div>
+            </div>
+            <div class="card" style="width: 12rem;">
+                <img class="rounded-circle" src="https://loremflickr.com/320/240?random=14" alt="">
+                <div class="card-body">
+                    <p>Nome Pessoa
+                        <br>Cidade/Estado</p>
+                </div>
+            </div>
+            <div class="card" style="width: 12rem;">
+                <img class="rounded-circle" src="https://loremflickr.com/320/240?random=15" alt="">
+                <div class="card-body">
+                    <p>Nome Pessoa
+                        <br>Cidade/Estado</p>
+                </div>
+            </div>
+        </main>
+    </div>
 </body>
-</html
+
+</html>

@@ -77,6 +77,42 @@
    
 }
 
+header.head  div#perfil-toolbar {
+    width: 150px;
+    height: 200px;
+    position: absolute;
+    color: #000;
+    top: 55px;
+    right: 20px;
+    z-index: 1;
+    box-shadow: 1px 1px 10px black;
+    background-color: white;
+}
+header.head  div#perfil-toolbar nav ul li {
+    width: 100%;
+    background-color: #b9b2b2;
+    text-align: center;
+}
+
+header.head  div#perfil-toolbar nav ul li:hover {
+    width: 100%;
+    background-color: #ece9e9;
+    text-align: center;
+}
+
+
+header.head  div#perfil-toolbar nav ul li a {
+    color: #000;
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    
+}
+
+.hide{
+
+    display: none;
+}
 
 .head .user-photo {
     display: block;
