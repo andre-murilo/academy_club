@@ -45,7 +45,7 @@ firebase.initializeApp({
                     // An error happened.
 
                     alert("erroooooooooooooooooo")
-                  });
+                  })
 
             }
 

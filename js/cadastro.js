@@ -1,32 +1,35 @@
 
 
+
+//verifica se um usuario ja logado esta tentando acessa a pagina 
 firebase.auth().onAuthStateChanged(function(user) {
     if(user)
     {
         var isAnonymous = user.isAnonymous;
         var uid = user.uid;
-        alert('acesso negado')
+        window.location.replace("index.html")
     }
     else
     {
-        console.log("[Database] Desconectado!");
+        
     }
 
 });
 
+var user = firebase.auth().currentUser;
 
-
-
+console.log(user.uid)
 
 
 function cadastro(){
 
+var Username = document.getElementById("user").value
+var datUser = document.getElementById("date").value
 var UserEmail = document.getElementById("email").value
 var UserPassword = document.getElementById("pass").value
 
-console.log(UserEmail)
-console.log(UserPassword)
 
+// cria o email e a senha para autenticar 
 firebase.auth().createUserWithEmailAndPassword(UserEmail, UserPassword).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
@@ -37,17 +40,58 @@ firebase.auth().createUserWithEmailAndPassword(UserEmail, UserPassword).catch(fu
     // ...
   });
 
-  //verifica se o usuario se conectou
+  
+  
+  addtodb(Username,datUser,UserEmail,UserPassword);
 
-var user = firebase.auth().currentUser;
+}
 
-if (user != null) {
-    
-   window.location.replace("/perfil.html")
+function addtodb(Username,datUser,UserEmail,UserPassword){
 
+
+    firebase.auth().onAuthStateChanged(function(user) {
+        if(user)
+        {
+            var isAnonymous = user.isAnonymous;
+            var uid = user.uid;
+
+            
+          
+          
+            
+          
+            firestore.collection("usuarios").doc(`${uid}`).set({
+              Nome: `${Username}`,
+              Nascimento: `${datUser}`,
+              Email:`${UserEmail}`,
+              senha:`${UserPassword}`,
+
+          })
+          .then(function() {
+              console.log("Document successfully written!");
+          })
+          .catch(function(error) {
+              console.error("Error writing document: ", error);
+          });
+           
+        }
+        else
+        {
+            
+        }
     
+    });
+
+      //verifica se o usuario se conectou
+
+if (uid != null) {
     
-  }
+    window.location.replace("perfil.html")
+ 
+     
+     
+   }
+   
 }
 
 
