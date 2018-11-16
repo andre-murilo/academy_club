@@ -1,4 +1,4 @@
-
+//---------------------------------------------------------------------------------------------------
 
 firebase.initializeApp({
     apiKey: "AIzaSyC-gmxXyEg9q10C-HeYaGFQnhBrWt3QF74",
@@ -11,17 +11,53 @@ firebase.initializeApp({
   });
 
 
-  var firestore = firebase.firestore();
+  const firestore = firebase.firestore();
   var storage = firebase.storage();
+
+
+//----------------------------------------------------------------------------------------------------
   
 
-  
-      firebase.auth().onAuthStateChanged(function(user) {  //verifica se o usuario esta logado
+  //verifica se o usuario esta logado e verifica se a documentos no database
+
+
+
+
+
+      firebase.auth().onAuthStateChanged(function(user) {  
                 if(user)
                 {
                     var isAnonymous = user.isAnonymous;
                     var uid = user.uid;
-                    console.log("[Database] Autenticado com sucesso: " + uid);
+                    var docRef =  firestore.collection('usuarios').doc(`${uid}`)
+
+          
+
+                    //pega os documentos
+
+                    docRef.get().then(function(doc) {
+                            if (doc.exists) {
+
+
+                    console.log("Document data:", doc.data());
+
+
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+        }).catch(function(error) {
+            console.log("Error getting document:", error);
+        });
+
+//-------------------------------------------------------------------------------------------------------
+     //nao permite que o usuario desconectado entre na pagina do perfil
+
+        
+
+        var storageRef = firebase.storage().ref();
+
+        console.log(storageRef);
                 }
                 else
                 {
@@ -31,6 +67,9 @@ firebase.initializeApp({
                 }
     
             });
+
+
+//----------------------------------------------------------------------------------------------------------
 
             //logout do usuario
 
@@ -50,22 +89,7 @@ firebase.initializeApp({
             }
 
 
-         var docRef =  firestore.collection('usuarios').doc('user1')
-
-         docRef.get().then(function(doc) {
-            if (doc.exists) {
-                console.log("Document data:", doc.data());
-            } else {
-                // doc.data() will be undefined in this case
-                console.log("No such document!");
-            }
-        }).catch(function(error) {
-            console.log("Error getting document:", error);
-        });
-
-        var storageRef = firebase.storage().ref();
-
-        console.log(storageRef);
+         
 
 
 

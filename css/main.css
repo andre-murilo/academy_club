@@ -2,7 +2,7 @@
 .main {
     margin: 0 !important;
     padding: 0 !important;
-
+    z-index: -1;
     top: 0;
     width: 70%;
     height: 100%;
