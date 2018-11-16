@@ -7,7 +7,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     {
         var isAnonymous = user.isAnonymous;
         var uid = user.uid;
-        window.location.replace("index.html")
+        // window.location.replace("index.html")
+        console.log('logado')
     }
     else
     {
@@ -16,9 +17,17 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 });
 
+
+
+
 var user = firebase.auth().currentUser;
 
 console.log(user.uid)
+
+
+//---------------------------------------------------------------------------------------------------
+//cadstro do usuario
+
 
 
 function cadastro(){
@@ -30,6 +39,8 @@ var UserPassword = document.getElementById("pass").value
 
 
 // cria o email e a senha para autenticar 
+
+
 firebase.auth().createUserWithEmailAndPassword(UserEmail, UserPassword).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
@@ -41,10 +52,18 @@ firebase.auth().createUserWithEmailAndPassword(UserEmail, UserPassword).catch(fu
   });
 
   
-  
+  //chama a funçao para cria informaçoes no banco de dados
   addtodb(Username,datUser,UserEmail,UserPassword);
 
 }
+
+
+
+//-----------------------------------------------------------------------------------------------------
+//funçao para cria info no banco de dados
+
+
+
 
 function addtodb(Username,datUser,UserEmail,UserPassword){
 
@@ -57,13 +76,13 @@ function addtodb(Username,datUser,UserEmail,UserPassword){
 
             
           
-          
+          console.log(uid)
             
           
             firestore.collection("usuarios").doc(`${uid}`).set({
-              Nome: `${Username}`,
-              Nascimento: `${datUser}`,
-              Email:`${UserEmail}`,
+              nome: `${Username}`,
+              nascimento: `${datUser}`,
+              email:`${UserEmail}`,
               senha:`${UserPassword}`,
 
           })
@@ -86,7 +105,8 @@ function addtodb(Username,datUser,UserEmail,UserPassword){
 
 if (uid != null) {
     
-    window.location.replace("perfil.html")
+    // window.location.replace("perfil.html")
+    alert('cadastrado')
  
      
      

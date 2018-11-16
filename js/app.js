@@ -13,7 +13,8 @@ firebase.initializeApp({
 
   const firestore = firebase.firestore();
   var storage = firebase.storage();
-
+  var storageRef = storage.ref();
+  verificar();
 
 //----------------------------------------------------------------------------------------------------
   
@@ -22,7 +23,7 @@ firebase.initializeApp({
 
 
 
-
+function verificar(){
 
       firebase.auth().onAuthStateChanged(function(user) {  
                 if(user)
@@ -31,25 +32,9 @@ firebase.initializeApp({
                     var uid = user.uid;
                     var docRef =  firestore.collection('usuarios').doc(`${uid}`)
 
-          
-
-                    //pega os documentos
-
-                    docRef.get().then(function(doc) {
-                            if (doc.exists) {
-
-
-                    console.log("Document data:", doc.data());
-
-
-            } else {
-                // doc.data() will be undefined in this case
-                console.log("No such document!");
-            }
-        }).catch(function(error) {
-            console.log("Error getting document:", error);
-        });
-
+                    console.log("esta logado")
+                    getDB(docRef)
+                    
 //-------------------------------------------------------------------------------------------------------
      //nao permite que o usuario desconectado entre na pagina do perfil
 
@@ -67,6 +52,60 @@ firebase.initializeApp({
                 }
     
             });
+
+     }
+
+//--------------------------------------------------------------------------------------------------------
+//pega os dados do usuario
+
+
+
+
+
+
+
+
+
+function getDB(docRef){
+
+
+        //pega os documentos
+
+        docRef.onSnapshot(function(doc) {
+
+        var nome = doc.data().nome
+        var curso = doc.data().curso
+        console.log(nome)
+      
+        
+
+        $(document).ready(function(){
+
+            $("img.im-p").attr("src", "img/02.jpg");
+            $(".user-photo h3").html(`${nome}`);
+            
+            if(curso != null){
+            $(".user-photo p").html(`${curso}`);
+
+            } else {
+                $(".user-photo p").html(`Adicionar curso`);
+
+            }
+        
+            
+    });
+
+
+        })
+
+
+    }
+
+
+
+
+
+
 
 
 //----------------------------------------------------------------------------------------------------------
@@ -112,59 +151,3 @@ firebase.initializeApp({
 
 
 
-
-// class DatabaseManager
-// {
-//     constructor()
-//     {
-//         this.event = new Event("OnConnected");
-
-
-//         this.config = {
-//             apiKey: "AIzaSyC-gmxXyEg9q10C-HeYaGFQnhBrWt3QF74",
-//             authDomain: "academyclub-fae14.firebaseapp.com",
-//             databaseURL: "https://academyclub-fae14.firebaseio.com",
-//             projectId: "academyclub-fae14",
-//             storageBucket: "academyclub-fae14.appspot.com",
-//             messagingSenderId: "1065301796384"
-//         }
-//     }
-
-
-
-
-
-
-
-
-//     Initialize()
-//     {
-//         this.defaultApp = firebase.initializeApp(this.config);
-//         this.defaultDB = this.defaultApp.database();
-//     }
-
-
-//     DoAuth()
-//     {
-        
-
-//         firebase.auth().onAuthStateChanged(function(user) {
-//             if(user)
-//             {
-//                 var isAnonymous = user.isAnonymous;
-//                 var uid = user.uid;
-//                 console.log("[Database] Autenticado com sucesso: " + uid);
-//             }
-//             else
-//             {
-//                 console.log("[Database] Desconectado!");
-//             }
-
-//         });
-//     }
-
-//     AddListernerUsers(func)
-//     {
-//         this.defaultDB.ref("usuarios").on("value", func);
-//     }
-// }
