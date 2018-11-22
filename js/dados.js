@@ -1,3 +1,52 @@
+var database = {
+    "pessoas": [
+        {
+            "id": 0,
+            "nome": "Wallace Barbosa",
+            "idade": 18,
+            "faculdade": "Puc Minas",
+            "curso": "Engenharia de Software",
+            "email": "wallace-naruto@gmail.com",
+            "img": "http://images-easy/wallace.png",
+            "temas": [0]
+        }
+
+    ],
+
+    "temas": [
+        {
+            "id": 0,
+            "categoria": "jogos - tabuleiro",
+            "titulo": "Dama",
+            "eventos-afiliados": [0, 1]
+        }
+
+    ],
+
+    "eventos": [
+        {
+            "id": 0,
+            "criador": 1,
+            "titulo": "Xadrez",
+            "pessoas": [0, 1, 2]
+        },
+        {
+            "id": 1,
+            "criador": 1,
+            "titulo": "Damas",
+            "pessoas": []
+        }
+
+    ]
+};
+
+
+
+
+
+
+
+
 var db = {
    
     "dados": [
