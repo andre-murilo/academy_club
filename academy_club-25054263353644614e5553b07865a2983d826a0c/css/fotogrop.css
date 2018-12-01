@@ -1,0 +1,10 @@
+.xadrez tr th{
+   
+    width: 220px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 8px;
+    float: left;
+    padding-right: 8px;
+    
+}

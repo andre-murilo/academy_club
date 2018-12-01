@@ -1,0 +1,135 @@
+/* main */
+.main {
+    margin: 0 !important;
+    padding: 0 !important;
+
+    top: 0;
+    width: 70%;
+    height: 100%;
+    float: left;
+    
+}
+
+/* conteudo central */
+
+main .bread-crambs {
+
+    height: 37px;
+    
+}
+
+main .bread-crambs span {
+
+    height: 30px;
+    margin-top: 5px;
+    font-size: 15px !important;
+}
+
+.breadcrumb {
+    
+    background-color: white  !important;
+    float: right;
+    padding: 5px !important;
+   
+}
+
+.breadcrumb-item{
+    margin: 0;
+    font-size: 15px !important;
+}
+
+.breadcrumb-item a{
+    margin: 0;
+    font-size: 15px !important;
+}
+
+.campo-perfil {
+
+    height: 100%;
+    margin-left: -20px !important;
+    /* background-color: #f3f3f3; */
+    /* background-color: #000000ce; */
+    background-color: #4080FF;
+}
+
+
+main .campo-perfil li {
+    list-style: none;
+    
+}
+
+main .user-photo {
+    display: block;
+    margin: 10px ;
+    padding: 5px 3px;
+    float: right;
+    height: 300px;
+    color: #ffffff;
+}
+
+main .user-photo img {
+    display: block;
+    border-radius: 50%;
+    width: 100%; 
+}
+
+/* Formatacao do submenu */
+.space-user {
+
+    height: 100%;
+    background-color: #f3f3f3;
+    margin-left: 245px !important;
+    padding: 0 !important;
+}
+
+.sub-menu {
+    display: block: ;
+    height: 42px;
+    width: 100%;
+    padding: 0;
+    margin: 0px auto;
+    padding-top: 10px;
+    background-color: #4080FF;
+    position: relative;
+}
+
+.sub-menu ul{
+    list-style: none;
+    text-transform: uppercase;
+    position: absolute;
+    top: -10px;
+    left: 100px;
+}
+.sub-menu ul li{
+    display: inline-block;
+    background-color: #4080FF;
+    padding: 10px;
+    margin: 10px;
+    -webkit-transition: background-color 1s;
+    -moz-transition: background-color 1s;
+    -o-transition: background-color 1s;
+    -ms-transition: background-color 1s;
+    transition: background-color 1s;
+    
+}
+.sub-menu ul li:hover{
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 100%;
+}
+
+.sub-menu a {
+    color: #ffff;
+    width: 100px;
+    padding: 0px;
+    display: block;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.sub-menu a:hover{
+    text-decoration: none;
+    color: #ffff;
+}
+
+
