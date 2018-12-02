@@ -12,9 +12,11 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" title="" charset="utf-8" />
     <link rel="stylesheet" href="css/normalize.css" type="text/css" media="screen" title="" charset="utf-8" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/magnific-popup.css"/>
     
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
 
     <!-- firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
@@ -159,10 +161,48 @@
                             <li onclick="mudaamigos()"><a href="Amigos.html">Amigos</a></li>                           
                         </ul>
                     </nav>
-                    Galeria
+            <form id="form-fotos" onsubmit="cadastrafotos(event)">
+                <div class="col-sm-30">
+                    <label for="inputImagem">Imagem</label>
+                        <input type="file" name="imagem" class="btn btn-default" id="inputImagem" onchange="previewImagem()">
+                <div id="tela"></div>    
+                    <img id="imgPage" src="data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7"
+                    alt="">
                 </div>
+                <div class="col-sm-10">
+                    <input type="submit" class="btn btn-primary" id="btnInsert" value="Inserir"> 
+                </div>
+            </form>
+                    <div class="row">
+                        <div class="col-sm-10">
+                        <table class="thead-light">
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
 
-                
+                                </tr>
+                            </thead>
+                            <tbody id="tableImagem" onload= "mostrafotos()">
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </main>
 
             <!-- menu direito -->
@@ -250,7 +290,9 @@
 
             </div> 
     
-
+        <script src="js/jquery.min.js"></script>
+        <script src="js/magnific-popup.js"></script>
         <script src="js/pesquisa.js"></script>
+        
 </body>
 </html
