@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta http-equiv="refresh" content="0.8">
+    <meta http-equiv="refresy" content="0.8">
     <meta http-equiv="Pragma" content="no-cache">
     <title>Academy Club</title>
     
@@ -17,22 +17,29 @@
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
 
 
-    <!-- firebase -->
-    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
+   <!-- Firebase App is always required and must be first -->
+<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
 
-    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-messaging.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-functions.js"></script>
+<!-- Add additional services that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-messaging.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-functions.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-storage.js"></script> 
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
 
 
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
 
-    <script src="js/database.js"></script>
-    <script src='js/dados.js'></script>
-    <script src='js/urlparams.js'></script>
+    <script src="js/app.js"></script>
+    <script src='js/cadastro.js'></script>
+    
 
 
 </head>
@@ -57,20 +64,23 @@
                     
                 </ul></nav></header>
     
-      <main> 
+      <main class="main"> 
           
         <div class="formulario  col-xl-6 ">
-
+         <form class="formulario form" action="javascript:void(0);">
             <h1>Preencha as informaçoes*</h1>
-           <input class="col-8" id="user" class="form-control" type="text" placeholder="Nome Completo" aria-label="pesquisar" aria-describedby="button-addon1">
-           <input class="col-6" id="user" class="form-control" type="text" placeholder="Email" aria-label="pesquisar" aria-describedby="button-addon1">
+           <input class="col-11 " id="user" class="form-control" type="text" placeholder="Nome Completo" aria-label="pesquisar" aria-describedby="button-addon1">
+           <input class="col-9 " id="email" class="form-control" type="text" placeholder="Email" aria-label="pesquisar" aria-describedby="button-addon1">
            
-
-           <input id="user" class="password col-4" type="password" placeholder="Senha" aria-label="pesquisar" aria-describedby="button-addon1">
-           <button onclick="Usuario()" class="botao btn-outline-dark " type="submit" >cadastrar</button>
+           <input id="date" class="password  col-6" type="date" placeholder="idade" onfocus="ola v" aria-label="pesquisar" aria-describedby="button-addon1">
+           <input id="pass" class="password  col-6" type="password" placeholder="Senha" aria-label="pesquisar" aria-describedby="button-addon1">
            
+           <button onclick="cadastro()" id="botao" type="submit" >cadastrar</button>
+        </form>
         
-      </div></main>
+      </div>
+    
+    </main>
           
         
 
