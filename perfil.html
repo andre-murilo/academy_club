@@ -33,10 +33,10 @@
 
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
 
-    <script src="js/app.js"></script>
+    <!-- <script src="js/app.js"></script>
     <script src='js/dados.js'></script>
-    <script src='js/urlparams.js'></script>
-    <script src="js/AcademyClub.js" ></script>
+    <script src='js/urlparams.js'></script>  
+    <script src="js/AcademyClub.js" ></script> -->
     
     
 </head>
@@ -46,7 +46,7 @@
 
     <script>
 
-          
+        verificar();
         var sair = $('#logout')
         sair.bind('click', function(){
     
@@ -58,7 +58,6 @@
         function eventExpand(){
                
                var expanderMN = document.getElementById('perfil-toolbar')
-               var expand = document.getElementById('')
                
                if (expanderMN.classList.contains('hide')) {
           expanderMN.classList.remove('hide')
@@ -74,7 +73,7 @@
 
       
           
-        <script language="jacascript" src="_js/sub-menu.js"></script>
+        <!-- <script language="jacascript" src="_js/sub-menu.js"></script> -->
             
             <!-- navegacao superior -->
             <header class="head">
@@ -152,7 +151,7 @@
                 </ul>
             </div>
 
-            <div class="calendario">
+            <!-- <div class="calendario">
                <span>Defina seu tempo livre obs: voce pode mudar titulo</span>
 
                <form action="">
@@ -164,7 +163,7 @@
                </button>
 
                <span>estiliza vc ai,pf seja coeerente com o designer da pagina</span>
-            </form>
+            </form> -->
 
             </div>
             </aside>
@@ -172,7 +171,7 @@
             
 
             <!-- conteudo central -->
-            <main class="main col-9">
+            <main class="main col-10">
 
                 <div class="bread-crambs col-12">
 
@@ -191,18 +190,28 @@
 
                 <div class="campo-perfil shadow left col-3  col-md-2 col-lg-2 col-xl-2">
                         <div class="user-photo text-center">
-                        <li class="right">
+                        <div class="right">
                                
-                                    <img class="im-p"  src="img/01.jpg">
+                                    <img class="im-p"  src="img/sem-foto-perfil.jpg">
+                                    <span ><a class="fa fa-2x fa-edit edit-perfil"  ></a></span>
+
+                                    <!-- <div class="edit">
+                                        <span>envie uma imagem</span>
+                                        <hr>
+                                        <button>upload</button>
+
+                                        <span>editar nome</span>
+                                        <input type="text">
+                                    </div> -->
                                 
-                            </li>
+                            </div>
 
                             <h3>marcos filipe</h3>
                             <p>estudante de engenharia - PucMG</p>
                         </div>
                         <div class="info-perfil"> 
                             
-                            <i class="fas fa-map-marker-alt"></i>
+                            <i class="fa fa-map-marker-alt"></i>
 
                         
                         </div>
@@ -241,60 +250,60 @@
             </main>
 
             <!-- menu direito -->
-            <div class="right-menu col-xl-2 col-lg-2 col-2">
+            <!-- <div class="right-menu col-xl-2 col-lg-2 col-2">
 
-                <div class="elements-menu col-11">
+                <div class="elements-menu col-11"> -->
                 <!-- tab control -->
-                <div class="tab">
+                <!-- <div class="tab"> -->
                     <!-- buttons -->
-                    <div class="btn-grupo btn-group col-12 offset-0" role="group" aria-label="Basic example">
+                    <!-- <div class="btn-grupo btn-group col-12 offset-0" role="group" aria-label="Basic example">
                         <button type="button" class="btn btn-secondary">Pessoas</button>
                         <button type="button" class="btn btn-secondary">Grupo</button>
                         
-                      </div>
+                      </div> -->
 
                     <!-- conteudo - pessoas -->
-                    <div class="tab-content-pessoas">
+                    <!-- <div class="tab-content-pessoas">
                         <table>
                             <tbody>
 
-                                <tr>
+                                <tr> -->
                                     <!-- user image -->
-                                    <th>
+                                    <!-- <th>
                                         <span class="dot online"></span> <img class="perfil-img" src="img/02.jpg">
                                     </th>
-                                   
+                                    -->
                                     
-                                    <!-- name & course -->
+                                    <!-- name & course
                                     <th>
                                         <span><a>Sabrina</a></span><br>
                                         <span><a>Direito</a></span>
                                         
                                     </th>
                                     
-                                </tr>   
+                                </tr>    -->
                            
-                                <tr>
+                                <!-- <tr> -->
                                     <!-- user image -->
-                                    <th>
+                                    <!-- <th>
                                         <span class="dot online"></span> <img class="perfil-img" src="img/03.jpg">
-                                    </th>
+                                    </th> -->
                                     
                                     <!-- name & course -->
-                                    <th>
+                                    <!-- <th>
                                         <span><a>Giulia</a></span><br>
                                         <span><a>Letras</a></span>
                                     </th>
                                 </tr> 
 
-                                <tr>
+                                <tr> -->
                                     <!-- user image -->
-                                    <th>
+                                    <!-- <th>
                                         <span class="dot offline"></span> <img class="perfil-img" src="img/04.jpg">
                                     </th>
-                                    
+                                     -->
                                     <!-- name & course -->
-                                    <th>
+                                    <!-- <th>
                                         <span><a>Paula</a></span><br>
                                         <span><a>Medicina</a></span>
                                     </th>
@@ -304,10 +313,10 @@
                             </tbody>
                         </table>
                     </div>
-                    </div>
+                    </div> -->
 
                     <!-- conteudo - grupos -->
-                    <div class="tab-content-grupos" style="display: none;">
+                    <!-- <div class="tab-content-grupos" style="display: none;">
                         
                     </div>
 
@@ -321,11 +330,11 @@
                 <div class="custom-search col col-12 align-self-end">
                      <input type="text" class="form-control" placeholder="Procurar" aria-label="Procurar" aria-describedby="button-addon1">
                     
-                </div>
+                </div> -->
 
 
 
-            </div> 
+            <!-- </div>  -->
     
 
         <script src="js/pesquisa.js"></script>

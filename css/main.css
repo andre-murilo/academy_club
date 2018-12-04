@@ -2,7 +2,7 @@
 .main {
     margin: 0 !important;
     padding: 0 !important;
-    z-index: -1;
+    z-index: 0;
     top: 0;
     width: 70%;
     height: 100%;
@@ -25,6 +25,10 @@ main .bread-crambs span {
     
 }
 
+
+
+/* caminho da navegaçao */
+
 .breadcrumb {
     
     background-color: white  !important;
@@ -45,6 +49,10 @@ main .bread-crambs span {
     font-size: 13px !important;
 }
 
+
+
+/* barra da informaçoes da pessoa imagem de perfil , nome etc.. */
+
 .campo-perfil {
 
     height: 100%;
@@ -61,10 +69,12 @@ main .campo-perfil li {
     
 }
 
-main .user-photo {
+ main .user-photo {      /*  foto de perfil */
+    width: 100%;
     display: block;
-    margin: 10px ;
-    padding: 5px 3px;
+    margin: 0 auto;
+    padding: 5px 0px;
+    
     float: right;
     height: 300px;
     color: #ffffff;
@@ -76,6 +86,39 @@ main .user-photo img {
     width: 100%; 
 }
 
+main .user-photo a.edit-perfil {   /*  icon de editar */
+    position: relative;
+    top: 5px;
+    width: 30px;
+    background-color: #4080FF;
+    cursor: pointer;
+    
+    -webkit-transition: background-color 1s;
+    -moz-transition: background-color 1s;
+    -o-transition: background-color 1s;
+    -ms-transition: background-color 1s;
+    transition: background-color 1s;
+}
+
+main .user-photo a.edit-perfil:hover{
+    color: rgba(0, 0, 0, 0.3);
+    
+}
+
+.edit {
+
+    position: absolute;
+    width: 800px;
+    height: 80%;
+    margin: 10%;
+    background-color: white;
+    z-index: 1;
+    color: black;
+}
+
+
+
+/* espaço da timeline e outros menus   */
 
 .space-user {
 
@@ -120,7 +163,7 @@ main .user-photo img {
 
 .sub-menu a {
     color: #ffff;
-    width: 100px;
+    width: 150px;
     height: 42px;
     padding: 10px;
     display: block;
@@ -133,6 +176,7 @@ main .user-photo img {
     text-decoration: none;
     color: #ffff;
 }
+
 
 
 

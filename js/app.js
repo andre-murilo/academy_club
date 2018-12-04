@@ -2,10 +2,11 @@
 
 firebase.initializeApp({
     apiKey: "AIzaSyC-gmxXyEg9q10C-HeYaGFQnhBrWt3QF74",
+    authDomain: "academyclub-fae14.firebaseapp.com",
     databaseURL: "https://academyclub-fae14.firebaseio.com",
     projectId: "academyclub-fae14",
     storageBucket: "academyclub-fae14.appspot.com",
-     messagingSenderId: "1065301796384"
+    messagingSenderId: "1065301796384"
 
     
   });
@@ -14,7 +15,7 @@ firebase.initializeApp({
   const firestore = firebase.firestore();
   var storage = firebase.storage();
   var storageRef = storage.ref();
-  verificar();
+  
 
 //----------------------------------------------------------------------------------------------------
   
@@ -92,7 +93,7 @@ function getDB(docRef){
 
             }
         
-            
+
     });
 
 

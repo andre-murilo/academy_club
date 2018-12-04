@@ -20,9 +20,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 
 
-var user = firebase.auth().currentUser;
 
-console.log(user.uid)
 
 
 //---------------------------------------------------------------------------------------------------
@@ -92,6 +90,9 @@ function addtodb(Username,datUser,UserEmail,UserPassword){
           .catch(function(error) {
               console.error("Error writing document: ", error);
           });
+
+
+          storageRef.child('imagePerfil');
            
         }
         else
@@ -102,6 +103,10 @@ function addtodb(Username,datUser,UserEmail,UserPassword){
     });
 
       //verifica se o usuario se conectou
+
+      var user = firebase.auth().currentUser;
+
+console.log(user.uid)
 
 if (uid != null) {
     
