@@ -21,10 +21,24 @@
     <script>
         LoadDB();
         
+        var params = GetParams();
+        var eventoIndex = 0;
+        var currentEvent;
+
+        for(let i = 0; i < params.length; i++)
+        {
+            switch(params[i].name)
+            {
+                case "eventoID":
+                    eventoIndex = parseInt(params[i].value);
+                    currentEvent = pegarEventoPelaID(eventoIndex);
+                    // alert("Evento: " + eventoIndex);
+                break;
+            }
+        }
 
 
-        // var params = GetParams();
-        // var menuIndex = 0;
+
 
         
 
@@ -125,8 +139,19 @@
                 });
             </script>
 
+            <script>
+                if(currentEvent.criador == currentUser.id)
+                {
+                    document.write('<input id="editar-grupo" class="btn btn-primary right " type="button" value="Editar Evento" data-toggle="modal" data-target="#modal_criar">');
+                }
 
-
+            </script>
+            
+            <form action="index.html">
+                <input id="voltar-grupo" class="btn btn-primary right " type="submit" value="Voltar">
+            </form>
+            
+           
             
             <ul class="list-info">
                 <h4>
@@ -140,8 +165,9 @@
         <!-- GROUP CONTENT -->
         <div class="menu-grupo col-12 shadow">
             <div class="card-header border-0 shadow-sm bg-dark text-white m-0 col-12 float-left">
-                <span class="float-left ">${title}</span>
-                <div class="d-inline float-right"><span>Data: ${evento.data_criacao} - ${turno}</span></div>
+                <span class="float-left "><script>document.write(currentEvent.titulo)</script></span>
+                
+                <div class="d-inline float-right"><span><script>document.write(`Data: ${currentEvent.data_criacao} - ${currentEvent.turno}`)</script></span></div>
             </div>
             </nav>
 
@@ -152,34 +178,49 @@
                     
         
                     <div class="card-body">
-                        <h5 class="card-title">${evento.descricao_title}</h5>
-                        <p class="card-text">${evento.descricao}</p>
+                        <h3 class="card-title"><script>document.write(currentEvent.descricao_title)</script></h3>
+                        <p class="card-text"><script>document.write(currentEvent.descricao)</script></p>
                     </div>
 
                     <h2>Participantes</h2>
                         <hr>
                     <div class="participants d-flex justify-content-start justify-content-sm-start justify-content-md-start   flex-wrap col-10 ">
-            
                         
-                                <div class="m-4">
-                                <a class=""><img src="img/sem-foto-perfil.jpg"></a>
-                                <span class="nome-participante d-block m-1 h3">${nome.participante}</span>
-                                </div> 
+                        <script>
+                            let html = "";
+                            for(let i = 0; i < currentEvent.pessoas.length; i++)
+                            {
+                                let user = pegarUsuario(currentEvent.pessoas[i]);
+                                html += `
+                                    <div class="m-4">
+                                    <a class=""><img src="${user.img}"></a>
+                                    <span class="nome-participante d-block m-1 h3">${user.nome}</span>
+                                    </div> 
+                                `;
+                            }
+                            document.write(html);
 
-                                <div class="m-4">
-                                <a class=""><img src="img/sem-foto-perfil.jpg"></a>
-                                <span class="nome-participante d-block m-1 h3">${nome.participante}</span>
-                                </div> 
+                        </script>
+                        
+                        <!-- <div class="m-4">
+                        <a class=""><img src="img/sem-foto-perfil.jpg"></a>
+                        <span class="nome-participante d-block m-1 h3">${nome.participante}</span>
+                        </div> 
 
-                                <div class="m-4">
-                                <a class=""><img src="img/sem-foto-perfil.jpg"></a>
-                                <span class="nome-participante d-block m-1 h3">${nome.participante}</span>
-                                </div> 
+                        <div class="m-4">
+                        <a class=""><img src="img/sem-foto-perfil.jpg"></a>
+                        <span class="nome-participante d-block m-1 h3">${nome.participante}</span>
+                        </div> 
 
-                                <div class="m-4">
-                                <a class=""><img src="img/sem-foto-perfil.jpg"></a>
-                                <span class="nome-participante d-block m-1 h3">${nome.participante}</span>
-                                </div> 
+                        <div class="m-4">
+                        <a class=""><img src="img/sem-foto-perfil.jpg"></a>
+                        <span class="nome-participante d-block m-1 h3">${nome.participante}</span>
+                        </div> 
+
+                        <div class="m-4">
+                        <a class=""><img src="img/sem-foto-perfil.jpg"></a>
+                        <span class="nome-participante d-block m-1 h3">${nome.participante}</span>
+                        </div>  -->
                                 
                                                                 
                     </div>
@@ -227,7 +268,7 @@
                                     let online = "";
                                     if(persona.online) {
                                         online = "online";
-                                    }
+                                    } else {online = "offline";}
 
                                     let html = `
                                         <tr>
@@ -257,8 +298,8 @@
                                 
                                
 
-                <!-- outro modal -->
-                <div class="modal fade" id="modal_criar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <!-- outro modal -->
+            <div class="modal fade" id="modal_criar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                         <div class="modal-header">
@@ -269,57 +310,255 @@
                         </div>
                         <div class="modal-body">
                             <form>
-                            <div class="form-row">
-                                <div class="col">
-                                <input type="text" class="form-control" placeholder="Nome do Evento">
+                                <div class="form-row">
+                                    <div class="col">
+                                        <label for="inputAddress2">Nome do evento</label>
+                                        <input id="nome_evento" type="text" class="form-control" placeholder="Nome do Evento">
+                                    </div>
+                                    <div class="col">
+                                        <label for="inputAddress2">Tema</label>
+                                        <select id="modal_tema" class="form-control" aria-placeholder="Tema">
+                                            <script>
+                                                let cats2 = [];
+                                                for(let i = 0; i < database.temas.length; i++)
+                                                {
+                                                    if(!isInArray(cats2, database.temas[i].categoria))
+                                                    {
+                                                        cats2.push(database.temas[i].categoria);
+                                                    }
+                                                }  
+
+                                                for(let i = 0; i < cats2.length; i++)
+                                                {
+                                                    document.write(`<option value="">${cats2[i]}</option>`);
+                                                }
+                                                
+
+                                            </script>
+                                        </select>
+                                            
+                                    <!-- <input type="text" class="form-control" placeholder="Atividade principal"> -->
+                                    </div>
                                 </div>
-                                <div class="col">
-                                <input type="text" class="form-control" placeholder="Atividade principal">
-                                </div>
-                            </div>
                             </form>
+                            <br>
                     
                             <form>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                <label for="inputdata">Data do Evento</label>
-                                <input type="text" class="form-control" id="inputdata" placeholder="Data do Evento"> 
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                    <label for="inputdata">Data do Evento</label>
+                                    <input type="date" class="form-control" id="data_criacao" placeholder="Data do Evento"> 
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                    <label for="inputhora">Termino do Evento</label>
+                                    <input type="date" class="form-control" id="data_termino" placeholder="Termino do Evento"> 
+
+                                    
+                                    <!-- <input type="text" class="form-control" id="inputhora" placeholder="Hora do evento"> -->
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-6">
-                                <label for="inputhora">Hora do Evento</label>
-                                <input type="text" class="form-control" id="inputhora" placeholder="Hora do evento">
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputdata">Turno</label>
+                                        <select id="model_turno2" class="form-control" aria-placeholder="Turno">
+                                            <option value="">Manha</option>
+                                            <option value="">Tarde</option>
+                                            <option value="">Noite</option>
+                                        </select>
+                                        <!-- <input type="date" class="form-control" id="inputdata" placeholder="Data do Evento">  -->
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="inputhora">Sub Categoria</label>
+                                        <!-- <input type="date" class="form-control" id="inputdata" placeholder="Termino do Evento">  -->
+                                        <select id="model_subcat" class="form-control" aria-placeholder="sub_cat">
+                                            <option value="">Tabuleiro</option>
+                                            <option value="">Eletronico</option>
+                                        </select>
+                                        
+                                        <!-- <input type="text" class="form-control" id="inputhora" placeholder="Hora do evento"> -->
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputAddress">Endereço</label>
-                                <input type="text" class="form-control" id="inputAddress" placeholder="Rua, numero e bairro">
-                            </div>
-                            <div class="form-group">
-                                <label for="inputAddress2">Complemento</label>
-                                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartmento, praça...">
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                <label for="inputCity">Cidade</label>
-                                <input type="text" class="form-control" id="inputCity">
+
+
+                                <div class="form-group">
+                                    <label for="inputAddress">Titulo do evento</label>
+                                    <input type="text" class="form-control" id="titulo_evento" placeholder="">
                                 </div>
-                                <div class="form-group col-md-4">
-                                <label for="inputState">Estado</label>
-                                <select id="inputState" class="form-control">
-                                    <option selected>Procurar...</option>
-                                    <option>Minas Gerais</option>
-                                </select>
+                                <div class="form-group">
+                                    <label for="inputAddress2">Descrição</label>
+                                    <textarea id="descricao_evento" class="form-control" rows="3" cols="50"></textarea>
+                                    <!-- <input type="text" class="form-control" id="inputAddress2" placeholder=""> -->
                                 </div>
-                                <div class="form-group col-md-2">
-                                <label for="inputZip">CEP</label>
-                                <input type="text" class="form-control" id="inputZip">
-                                </div>
-                            </div>
+
+                                <!-- <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                    <label for="inputCity">Cidade</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                    <label for="inputState">Estado</label>
+                                    <select id="inputState" class="form-control">
+                                        <option selected>Procurar...</option>
+                                        <option>Minas Gerais</option>
+                                    </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                    <label for="inputZip">CEP</label>
+                                    <input type="text" class="form-control" id="inputZip">
+                                    </div>
+                                </div> -->
+
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button id="inputcadastrar" type="button" class="btn btn-primary">Cadastrar eventos</button>
+                            <button id="btn_cadastrar" type="button" class="btn btn-primary">Cadastrar eventos</button>
                         </div>
+
+                        <script>
+                            document.getElementById("modal_tema").addEventListener("change", function() {
+                                let text = $("#modal_tema>option:selected").text();
+
+                                let subs = [];
+                                for(let i = 0; i < database.temas.length; i++)
+                                {
+                                    if(database.temas[i].categoria == text)
+                                    {
+                                        subs.push(database.temas[i].sub_categoria);
+                                    }
+                                }
+
+                                let html = "";
+                                for(let i = 0; i < subs.length; i++)
+                                {
+                                    html += `<option value="">${subs[i]}</option>`;
+                                }
+
+                                $("#model_subcat").empty();
+                                $("#model_subcat").html(html);
+                                console.log(subs);
+                            });
+
+
+                            // button editar
+                            document.getElementById("editar-grupo").addEventListener("click", function() {
+                                $("#nome_evento").val(currentEvent.titulo);
+                                let data = new Date(currentEvent.data_criacao);
+                                $("#data_criacao").val(data.toUTCString());
+                                $("#data_termino").val(currentEvent.data_termino);
+                                $("#titulo_evento").val(currentEvent.descricao_title);
+                                $("#descricao_evento").val(currentEvent.descricao);
+                            });
+
+
+                            // button salvar
+                            document.getElementById("btn_cadastrar").addEventListener("click", function() {
+                                let nomeEvento = $("#nome_evento").val();
+                                let tema = $("#modal_tema>option:selected").text();
+                                let dataCriacao = $("#data_criacao").val();
+                                let dataTermino = $("#data_termino").val();
+                                let subTema = $("#model_subcat>option:selected").text();
+                                let titulo = $("#titulo_evento").val();
+                                let desc = $("#descricao_evento").val();
+                                let turno = $("#model_turno2>option:selected").text();
+
+
+                                let turn = "";
+                                switch(turno)
+                                {
+                                    case "Noite":
+                                        turn = "N";
+                                    break;
+                                    case "Tarde":
+                                        turn = "T";
+                                    break;
+                                    case "Manha":
+                                        turn = "M";
+                                    break;
+                                }
+
+                                currentEvent.titulo = nomeEvento;
+                                currentEvent.descricao_title = titulo;
+                                currentEvent.descricao = desc;
+                                currentEvent.dataCriacao = dataCriacao;
+                                currentEvent.dataTermino = dataTermino;
+                                currentEvent.turn = turn;
+
+
+                                for(let i = 0; i < database.eventos.length; i++)
+                                {
+                                    if(database.eventos[i].id == currentEvent.id)
+                                    {
+                                        database.eventos[i] = currentEvent;
+                                    }
+                                }
+
+                                SaveDB();
+
+                                alert("Evento alterado com sucesso");
+                                $('#modal_criar').modal('hide');
+
+                                location.reload();
+                            });
+
+
+                            // button criar
+
+                            // document.getElementById("btn_cadastrar").addEventListener("click", function() {
+                            //     let nomeEvento = $("#nome_evento").val();
+                            //     let tema = $("#modal_tema>option:selected").text();
+                            //     let dataCriacao = $("#data_criacao").val();
+                            //     let dataTermino = $("#data_termino").val();
+                            //     let subTema = $("#model_subcat>option:selected").text();
+                            //     let titulo = $("#titulo_evento").val();
+                            //     let desc = $("#descricao_evento").val();
+                            //     let turno = $("#model_turno2>option:selected").text();
+
+
+                            //     let obj = {
+                            //         nomeEvento,
+                            //         tema,
+                            //         dataCriacao,
+                            //         dataTermino,
+                            //         subTema,
+                            //         titulo, 
+                            //         desc
+                            //     }
+
+                            //     console.log(obj);
+                                
+                            //     // verifica se ja existe algum grupo com o nome
+                            //     if(IsEventosHaveName(nomeEvento))
+                            //     {
+                            //         alert("Já existe um evento com esse nome!");
+                            //         return;
+                            //     }
+
+                            //     let temaID = pegarIdTemaPelaSub(subTema);
+                            //     console.log(temaID);
+                                
+
+                            //     if(cadastrarEvento(nomeEvento, temaID, dataCriacao, dataTermino, titulo, desc, turno))
+                            //     {
+                            //         alert("Evento criado com sucesso!");
+                            //         $("#nome_evento").val("");
+                            //         $("#data_criacao").val("");
+                            //         $("#data_termino").val("");
+                            //         $("#titulo_evento").val("");
+                            //         $("#descricao_evento").val("");
+
+
+                            //         $('#modal_criar').modal('hide');
+
+
+                            //         return;
+                            //     }
+                            // });
+
+
+                        </script>
+
                         </div>
                     </div>
                 </div>

@@ -44,15 +44,19 @@ var database = {
             "id": 0,
             "categoria": "Jogos",
             "sub_categoria": "Tabuleiro",
-            "titulo": "Tabuleiro",
             "eventos_afiliados": [0, 1]
         },
         {
             "id": 1,
             "categoria": "Jogos",
             "sub_categoria": "Eletronico",
-            "titulo": "Jogos eletronicos",
             "eventos_afiliados": [2]
+        },
+        {
+            "id": 2,
+            "categoria": "Festas",
+            "sub_categoria": "Aniversario",
+            "eventos_afiliados": []
         }
     ],
 
@@ -114,6 +118,94 @@ function LoadDB()
 }
 
 
+function IsEventosHaveName(nome)
+{   
+    for(let i = 0; i < database.eventos.length; i++)
+    {
+        if(database.eventos[i].titulo == nome)
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+function pegarIdTemaPelaSub(sub)
+{
+    for(let i = 0; i < database.temas.length; i++)
+    {
+        if(database.temas[i].sub_categoria == sub)
+        {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+function AddEventoNoTema(eventoID, temaID)
+{
+    for(let i = 0; i < database.temas.length; i++)
+    {
+        if(database.temas[i].id == temaID)
+        {
+            database.temas[i].eventos_afiliados.push(eventoID);
+        }
+    }
+}
+
+function pegarProxIDEvento()
+{
+    return database.eventos.length;
+}
+
+function cadastrarEvento(nomeEvento, temaID, dataCriacao, dataTermino, desc_titulo, desc, turno)
+{
+    let nextID = pegarProxIDEvento();
+
+
+    let turn = "";
+    switch(turno)
+    {
+        case "Noite":
+            turn = "N";
+        break;
+        case "Tarde":
+            turn = "T";
+        break;
+        case "Manha":
+            turn = "M";
+        break;
+    }
+
+
+    let event = 
+    {  
+        "id": nextID,
+        "criador": currentUser.id,
+        "titulo": nomeEvento,
+        "descricao_title": desc_titulo,
+        "descricao": desc,
+        "pessoas": [],
+        "data_criacao": dataCriacao,
+        "data_termino": dataTermino,
+        "turno": turn
+    };
+    event.pessoas.push(currentUser.id);
+    AddEventoNoTema(nextID, temaID);
+
+    database.eventos.push(event);
+
+    SaveDB();
+
+    return true;
+}
+
+
+
+
+
 
 
 
@@ -148,6 +240,18 @@ function estouLogado()
     }
 }
 
+function pegarEventoPelaID(eventoID)
+{
+    for(let i = 0; i < database.eventos.length; i++)
+    {
+        if(database.eventos[i].id == eventoID)
+        {
+            return database.eventos[i];
+        }
+    }
+
+    return null;
+}
 
 
 function SetUserImage(imgData)
@@ -305,7 +409,7 @@ function pegarTemaAfiliado(eventID)
 }
 
 
-function pegarHTMLGrupo(evento)
+function pegarHTMLGrupo(evento, filter)
 {
     let tema = pegarTemaAfiliado(evento.id);
     let dono = pegarUsuario(evento.criador);
@@ -355,6 +459,13 @@ function pegarHTMLGrupo(evento)
     }
 
 
+    let aditional = "";
+    if(!filter) {
+        aditional = ""
+    } else {
+        aditional = `<input onclick="SairDoEvento(${evento.id})" class="btn btn-secondary" type="button" value="Sair">`;
+    }
+
     html = `
         <div class="card text-center col-10 p-0 ">
             <div class="card-header border-0 shadow-sm bg-dark text-white m-0 col-12 float-left">
@@ -362,9 +473,14 @@ function pegarHTMLGrupo(evento)
                 <div class="d-inline float-right"><span>Data: ${evento.data_criacao} - ${turno}</span></div>
             </div>
 
+            <div class="d-inline float-right">
+                <p>Visualizar</p>
+            </div>
             <div class="card-body">
                 <h5 class="card-title">${evento.descricao_title}</h5>
                 <p class="card-text">${evento.descricao}</p>
+
+              
             </div>
 
             <div class=" col-12 card-footer text-muted">
@@ -387,7 +503,17 @@ function pegarHTMLGrupo(evento)
                     -->
                 </div>
 
-                <div class="d-inline mt-2 float-right"><span>Criacao: ${evento.data_criacao}</span></div>
+                <div class="d-inline mt-2 float-right">
+                    ${aditional}
+                   
+                    <form action="evento.html" method="get" style="display:inline">
+                        <input type="hidden" name="eventoID" value="${evento.id}" />
+                        <input class="btn btn-secondary" type="submit" value="Visualizar">
+                        <!-- <input type="submit" value="Go to Google" /> -->
+                     </form>
+                </div>
+                
+                <!-- <div class="d-inline mt-2 float-right"><span>Criacao: ${evento.data_criacao}</span></div> -->
             </div>
         </div>`;
 
@@ -515,3 +641,22 @@ function isInArray(array, search)
 {
     return array.indexOf(search) >= 0;
 }
+
+
+function SairDoEvento(eventoID)
+{
+    for(let i = 0; i < database.eventos.length; i++)
+    {
+        if(database.eventos[i].id == eventoID)
+        {
+            let index = database.eventos[i].pessoas.indexOf(currentUser.id);
+            if(index == -1) return;
+            database.eventos[i].pessoas.splice(index, 1);
+        }
+    }
+
+    SaveDB();
+
+    location.reload();
+}
+

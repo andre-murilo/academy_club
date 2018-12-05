@@ -177,19 +177,21 @@
                 <script>
 
                     let eventos;
+                    let filter;
 
                     if(menuIndex == 0) {
                         eventos = pegarTodosEventos();
+                        filter = false;
                     } else {
                         eventos = pegarMeusEventos();
+                        filter = true;
                     }
 
                     for(let i = 0; i < eventos.length; i++)
                     {
                         let evento = eventos[i];
                         console.log(evento);
-                    
-                        let html = pegarHTMLGrupo(evento);
+                        let html = pegarHTMLGrupo(evento, filter);
                         document.write(html);
                         document.write("<br>");
                     }
@@ -218,6 +220,8 @@
                                     let online = "";
                                     if(persona.online) {
                                         online = "online";
+                                    } else {
+                                        online = "offline";
                                     }
 
                                     let html = `
@@ -288,8 +292,8 @@
                                 <select id="model_subcategoria">
 
                                     <script>
+                                        // escrever todas as subcategorias
                                         document.write(`<option value="">Todos</option>`);
-
                                         let sub_cats = [];
                                         for(let i = 0; i < database.temas.length; i++)
                                         {
@@ -303,6 +307,55 @@
                                         {
                                             document.write(`<option value="">${sub_cats[i]}</option>`);
                                         }  
+                       
+
+
+                                        document.getElementById("model_categoria").addEventListener("change", function() {
+                                            let main_cat = $("#model_categoria>option:selected").text();
+                                            
+                                            if(main_cat == "Todos")
+                                            {
+                                                let sub_cats = [];
+                                                for(let i = 0; i < database.temas.length; i++)
+                                                {
+                                                    if(!isInArray(sub_cats, database.temas[i].sub_categoria))
+                                                    {
+                                                        sub_cats.push(database.temas[i].sub_categoria);
+                                                    }
+                                                }    
+                                                
+                                                let html = '<option value="">Todos</option>';
+                                                for(let i = 0; i < sub_cats.length; i++)
+                                                {
+                                                    html += `<option value="">${sub_cats[i]}</option>`;
+                                                }  
+                                                $("#model_subcategoria").empty();
+                                                $("#model_subcategoria").html(html);
+
+                                                return;
+                                            }
+
+
+                                            let subs = [];
+                                            for(let i = 0; i < database.temas.length; i++)
+                                            {
+                                                if(database.temas[i].categoria == main_cat)
+                                                {
+                                                    subs.push(database.temas[i].sub_categoria);
+                                                }
+                                            }
+
+                                            let html = '<option value="">Todos</option>';
+                                            for(let i = 0; i < subs.length; i++)
+                                            {
+                                                html += `<option value="">${subs[i]}</option>`;
+                                            }
+
+                                            $("#model_subcategoria").empty();
+                                            $("#model_subcategoria").html(html);
+
+                                        });
+
                                     </script>
                                 </select>
 
@@ -426,57 +479,192 @@
                         </div>
                         <div class="modal-body">
                             <form>
-                            <div class="form-row">
-                                <div class="col">
-                                <input type="text" class="form-control" placeholder="Nome do Evento">
+                                <div class="form-row">
+                                    <div class="col">
+                                        <label for="inputAddress2">Nome do evento</label>
+                                        <input id="nome_evento" type="text" class="form-control" placeholder="Nome do Evento">
+                                    </div>
+                                    <div class="col">
+                                        <label for="inputAddress2">Tema</label>
+                                        <select id="modal_tema" class="form-control" aria-placeholder="Tema">
+                                            <script>
+                                                let cats2 = [];
+                                                for(let i = 0; i < database.temas.length; i++)
+                                                {
+                                                    if(!isInArray(cats2, database.temas[i].categoria))
+                                                    {
+                                                        cats2.push(database.temas[i].categoria);
+                                                    }
+                                                }  
+
+                                                for(let i = 0; i < cats2.length; i++)
+                                                {
+                                                    document.write(`<option value="">${cats2[i]}</option>`);
+                                                }
+                                                
+
+                                            </script>
+                                        </select>
+                                            
+                                    <!-- <input type="text" class="form-control" placeholder="Atividade principal"> -->
+                                    </div>
                                 </div>
-                                <div class="col">
-                                <input type="text" class="form-control" placeholder="Atividade principal">
-                                </div>
-                            </div>
                             </form>
+                            <br>
                     
                             <form>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                <label for="inputdata">Data do Evento</label>
-                                <input type="text" class="form-control" id="inputdata" placeholder="Data do Evento"> 
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                    <label for="inputdata">Data do Evento</label>
+                                    <input type="date" class="form-control" id="data_criacao" placeholder="Data do Evento"> 
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                    <label for="inputhora">Termino do Evento</label>
+                                    <input type="date" class="form-control" id="data_termino" placeholder="Termino do Evento"> 
+
+                                    
+                                    <!-- <input type="text" class="form-control" id="inputhora" placeholder="Hora do evento"> -->
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-6">
-                                <label for="inputhora">Hora do Evento</label>
-                                <input type="text" class="form-control" id="inputhora" placeholder="Hora do evento">
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputdata">Turno</label>
+                                        <select id="model_turno2" class="form-control" aria-placeholder="Turno">
+                                            <option value="">Manha</option>
+                                            <option value="">Tarde</option>
+                                            <option value="">Noite</option>
+                                        </select>
+                                        <!-- <input type="date" class="form-control" id="inputdata" placeholder="Data do Evento">  -->
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="inputhora">Sub Categoria</label>
+                                        <!-- <input type="date" class="form-control" id="inputdata" placeholder="Termino do Evento">  -->
+                                        <select id="model_subcat" class="form-control" aria-placeholder="sub_cat">
+                                            <option value="">Tabuleiro</option>
+                                            <option value="">Eletronico</option>
+                                        </select>
+                                        
+                                        <!-- <input type="text" class="form-control" id="inputhora" placeholder="Hora do evento"> -->
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputAddress">Endereço</label>
-                                <input type="text" class="form-control" id="inputAddress" placeholder="Rua, numero e bairro">
-                            </div>
-                            <div class="form-group">
-                                <label for="inputAddress2">Complemento</label>
-                                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartmento, praça...">
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                <label for="inputCity">Cidade</label>
-                                <input type="text" class="form-control" id="inputCity">
+
+
+                                <div class="form-group">
+                                    <label for="inputAddress">Titulo do evento</label>
+                                    <input type="text" class="form-control" id="titulo_evento" placeholder="">
                                 </div>
-                                <div class="form-group col-md-4">
-                                <label for="inputState">Estado</label>
-                                <select id="inputState" class="form-control">
-                                    <option selected>Procurar...</option>
-                                    <option>Minas Gerais</option>
-                                </select>
+                                <div class="form-group">
+                                    <label for="inputAddress2">Descrição</label>
+                                    <textarea id="descricao_evento" class="form-control" rows="3" cols="50"></textarea>
+                                    <!-- <input type="text" class="form-control" id="inputAddress2" placeholder=""> -->
                                 </div>
-                                <div class="form-group col-md-2">
-                                <label for="inputZip">CEP</label>
-                                <input type="text" class="form-control" id="inputZip">
-                                </div>
-                            </div>
+
+                                <!-- <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                    <label for="inputCity">Cidade</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                    <label for="inputState">Estado</label>
+                                    <select id="inputState" class="form-control">
+                                        <option selected>Procurar...</option>
+                                        <option>Minas Gerais</option>
+                                    </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                    <label for="inputZip">CEP</label>
+                                    <input type="text" class="form-control" id="inputZip">
+                                    </div>
+                                </div> -->
+
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button id="inputcadastrar" type="button" class="btn btn-primary">Cadastrar eventos</button>
+                            <button id="btn_cadastrar" type="button" class="btn btn-primary">Cadastrar eventos</button>
                         </div>
+
+                        <script>
+                            document.getElementById("modal_tema").addEventListener("change", function() {
+                                let text = $("#modal_tema>option:selected").text();
+
+                                let subs = [];
+                                for(let i = 0; i < database.temas.length; i++)
+                                {
+                                    if(database.temas[i].categoria == text)
+                                    {
+                                        subs.push(database.temas[i].sub_categoria);
+                                    }
+                                }
+
+                                let html = "";
+                                for(let i = 0; i < subs.length; i++)
+                                {
+                                    html += `<option value="">${subs[i]}</option>`;
+                                }
+
+                                $("#model_subcat").empty();
+                                $("#model_subcat").html(html);
+                                console.log(subs);
+                            });
+
+                            // button criar
+
+                            document.getElementById("btn_cadastrar").addEventListener("click", function() {
+                                let nomeEvento = $("#nome_evento").val();
+                                let tema = $("#modal_tema>option:selected").text();
+                                let dataCriacao = $("#data_criacao").val();
+                                let dataTermino = $("#data_termino").val();
+                                let subTema = $("#model_subcat>option:selected").text();
+                                let titulo = $("#titulo_evento").val();
+                                let desc = $("#descricao_evento").val();
+                                let turno = $("#model_turno2>option:selected").text();
+
+
+                                let obj = {
+                                    nomeEvento,
+                                    tema,
+                                    dataCriacao,
+                                    dataTermino,
+                                    subTema,
+                                    titulo, 
+                                    desc
+                                }
+
+                                console.log(obj);
+                                
+                                // verifica se ja existe algum grupo com o nome
+                                if(IsEventosHaveName(nomeEvento))
+                                {
+                                    alert("Já existe um evento com esse nome!");
+                                    return;
+                                }
+
+                                let temaID = pegarIdTemaPelaSub(subTema);
+                                console.log(temaID);
+                                
+
+                                if(cadastrarEvento(nomeEvento, temaID, dataCriacao, dataTermino, titulo, desc, turno))
+                                {
+                                    alert("Evento criado com sucesso!");
+                                    $("#nome_evento").val("");
+                                    $("#data_criacao").val("");
+                                    $("#data_termino").val("");
+                                    $("#titulo_evento").val("");
+                                    $("#descricao_evento").val("");
+
+
+                                    $('#modal_criar').modal('hide');
+
+
+                                    return;
+                                }
+                            });
+
+
+                        </script>
+
                         </div>
                     </div>
                 </div>

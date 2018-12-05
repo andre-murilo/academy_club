@@ -43,7 +43,7 @@
 }
 
 #group-content {
-    height: 800px;
+    height: 100%;
     background-color: rgb(228, 225, 225);
 }
 
@@ -85,16 +85,22 @@
     max-width: 1400px !important;
 }
 
- /* pagina de visualizaçao do evento */
-
- .nome-participante {
-    
-
- }
 .participants img {
 
 
     width: 150px;
     height: 150px;
     border-radius: 75px;
+}
+
+#editar-grupo {
+    
+    float: right;
+    margin-top: 60px;
+    margin-right: 25px;
+}
+
+#voltar-grupo {
+    float: right;
+    margin-right: 32px;
 }

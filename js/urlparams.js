@@ -9,7 +9,7 @@ class Params
     }
 }
 
-var parameters = ["inicio", "eventos", "teste"];
+var parameters = ["inicio", "eventoID", "teste"];
 
 function GetParams()
 {
