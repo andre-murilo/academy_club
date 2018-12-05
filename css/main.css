@@ -7,6 +7,7 @@
     width: 70%;
     height: 100%;
     float: left;
+    overflow: scroll;
     
 }
 
@@ -137,8 +138,10 @@ main .user-photo a.edit-perfil:hover{
     margin: 0px auto;
     background-color: #4080FF;
     position: relative;
-
 }
+
+
+
 .sub-menu ul{
     list-style: none;
 }
@@ -155,6 +158,10 @@ main .user-photo a.edit-perfil:hover{
     transition: background-color 1s;
 }
 
+.sub-menu .selected {
+    background-color: rgb(23, 100, 255);
+    height: 100%;
+}
 
 .sub-menu ul li:hover{
     background-color: rgba(0, 0, 0, 0.3);

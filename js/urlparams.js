@@ -1,52 +1,30 @@
 // QUERY MANAGER
 
-var params = ["profile", "group", "account"];
-
- function VerifyQuery()
+class Params
 {
-    let urlParams = new URLSearchParams(window.location.search);
-
-    for(var i = 0; i < params.length; i++)
+    constructor(name, value)
     {
-        if(urlParams.has(params[i]))
-        {
-            url = urlParams.get(params[i])
-        }
+        this.name = name;
+        this.value = value;
     }
-
-    return url;
 }
 
-if (VerifyQuery() == "xadrez/Sabrina") {
-$(document).ready(function(){
+var parameters = ["inicio", "eventos", "teste"];
 
-    $("img.im-p").attr("src", "img/02.jpg");
-    $(".user-photo h3").html('Sabrina');
-    $(".user-photo p").html('estudante de direito - PucMG');
-});
+function GetParams()
+{
+    let urlParams = new URLSearchParams(window.location.search);
+    let params = [];
 
-} else {
-
-    if (VerifyQuery() == "war/Marcos") {
-
-        $(document).ready(function(){
-
-            $("img.im-p").attr("src", "img/01.jpg");
-            $(".user-photo h3").html('Marcos');
-            $(".user-photo p").html('estudante de enfermagem - PucMG');
-        });
-        
-    } else {
-
-        if (VerifyQuery() == "xadrez/Giulia"){
-            
-            $(document).ready(function(){
-
-                $("img.im-p").attr("src", "img/03.jpg");
-                $(".user-photo h3").html('Giulia');
-                $(".user-photo p").html('estudante de letras - PucMG');
-            });
-            
+    for(var i = 0; i < parameters.length; i++)
+    {
+        if(urlParams.has(parameters[i]))
+        {
+            console.log(urlParams.get(parameters[i]));
+            params.push(new Params(parameters[i], urlParams.get(parameters[i])));
         }
     }
+
+
+    return params;
 }
