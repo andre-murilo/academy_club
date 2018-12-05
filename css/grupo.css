@@ -84,3 +84,17 @@
     width: 90% !important;
     max-width: 1400px !important;
 }
+
+ /* pagina de visualizaçao do evento */
+
+ .nome-participante {
+    
+
+ }
+.participants img {
+
+
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+}
