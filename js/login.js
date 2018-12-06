@@ -1,64 +1,40 @@
-firebase.auth().onAuthStateChanged(function(user) {
-    if(user)
-    {
-        var isAnonymous = user.isAnonymous;
-        var uid = user.uid;
-        console.log('conectado')
-        window.location.replace("perfil.html")
-    }
-    else
-    {
-        console.log("[Database] Desconectado!");
-    }
-})
-
-var user = firebase.auth().currentUser;
-
-if (user != null) {
-    
-   window.location.replace("perfil.html")
+SaveDB();
+LoadDB();
+verifique();
+ 
+ function login(){
 
     
-    
-  }
 
+    var nome = document.getElementById("user").value;
+    let senha = document.getElementById("pass").value;
+    console.log(database.pessoas[0].nome)
+    for (i=0 ; i < database.pessoas.length; i++)
+    if(nome == database.pessoas[i].nome & senha == database.pessoas[i].senha){
+        console.log("vc esta logado", estouLogado())
+        database.pessoas[i].online = true;
+        SaveDB();
+        window.location.replace("index.html");
+        break;
+        
+    } else {
 
-
-function login(){
-
-    var email = document.getElementById("user").value;
-    var password = document.getElementById("pass").value;
-
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // ...
-      });
-
-      //verifica se o usuario se conectou
-
-var user = firebase.auth().currentUser;
-
-if (user != null) {
-    
-   window.location.replace("perfil.html")
-
-    
-    
-  }
-
-  firebase.auth().onAuthStateChanged(function(user) {
-    if(user)
-    {
-        var isAnonymous = user.isAnonymous;
-        var uid = user.uid;
-        console.log('conectado')
-    }
-    else
-    {
-        console.log("[Database] Desconectado!");
+        achou = 1
     }
 
-});
-}
+    if(achou == 1){
+alert("ERRO VC NAO ESTA CADASTRADO")
+
+    }
+ }
+
+
+
+
+
+
+
+
+
+
+

@@ -8,9 +8,9 @@
 .main {
     width: 100%;
     height: 100%;
-    background-image: url('../img/000034_5ad4ef1093728_redessociaislogicadigital.jpg');
-    background-size: ;
+    background-image: url("../img/back-login.jpg");
     background-position: center;
+    background-size: 100%;
     background-repeat: no-repeat 30;
     position: absolute;
 }
@@ -88,7 +88,7 @@
     width: 100%;
 }
 
-#user,#email,#pass {
+#user,#email,#pass,#faculdade,#curso {
 
     height: 50px;
     display: block;

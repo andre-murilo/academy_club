@@ -1,9 +1,17 @@
-
-
+* {
+    margin: 0 auto;
+}
+body {
+        background-image: url("../img/back-login.jpg");
+        background-position: center;
+        background-size: 100%;
+        
+}
 main {
     
     margin: 0;
     max-width: 1440px;
+    
 }
 
 main > div.formulario {
@@ -30,4 +38,10 @@ div.formulario > form > button.botao{
     width: 100px;
     height: 50px;
 
+}
+
+.max-width {
+
+    max-width: 1440px;
+    margin: 0 auto;
 }

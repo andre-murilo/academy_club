@@ -37,7 +37,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
 
-    <script src="js/app.js"></script>
+    <script src="js/database.js"></script>
     <script src='js/cadastro.js'></script>
     
 
@@ -48,6 +48,13 @@
 
 <!-- body -->
 <body>
+
+  <script>
+    if(estouLogado() == true){
+          window.location.replace("index.html");
+
+    }
+  </script>
 
         <header class="">
                 
@@ -64,13 +71,13 @@
                               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="#">Login</a>
+                              <a class="nav-link" href="login.html">Login</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="#">Cadastra</a>
+                              <a class="nav-link" href="cadastro.html">Cadastra</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link disabled" href="#">Sobre</a>
+                              <a class="nav-link disabled" href="sobre.html">Sobre</a>
                             </li>
                           </ul>
                         </div>
@@ -83,9 +90,10 @@
          <form class="formulario form" action="javascript:void(0);">
             <h1>Preencha as informaçoes*</h1>
            <input class="col-11 " id="user" class="form-control" type="text" placeholder="Nome Completo" aria-label="pesquisar" aria-describedby="button-addon1">
+           <input class="col-9 " id="faculdade" class="form-control" type="text" placeholder="faculdade" aria-label="pesquisar" aria-describedby="button-addon1">
+           <input class="col-6 " id="curso" class="form-control" type="text" placeholder="Curso" aria-label="pesquisar" aria-describedby="button-addon1">
            <input class="col-9 " id="email" class="form-control" type="text" placeholder="Email" aria-label="pesquisar" aria-describedby="button-addon1">
-           
-           <input id="date" class="password  col-6" type="date" placeholder="idade" onfocus="ola v" aria-label="pesquisar" aria-describedby="button-addon1">
+           <input id="idade" class="password  col-6" type="text" placeholder="idade"  aria-label="pesquisar" aria-describedby="button-addon1">
            <input id="pass" class="password  col-6" type="password" placeholder="Senha" aria-label="pesquisar" aria-describedby="button-addon1">
            
            <button onclick="cadastro()" id="botao" type="submit" >cadastrar</button>
