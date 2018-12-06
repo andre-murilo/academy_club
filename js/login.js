@@ -1,5 +1,5 @@
-SaveDB();
 LoadDB();
+SaveDB();
 verifique();
  
  function login(){
